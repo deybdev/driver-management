@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Get all DOM elements
   const menuItems = document.querySelectorAll(".sidebar ul li");
   const statusBtn = document.getElementById("statusBtn");
   const statusText = statusBtn?.querySelector(".status-text");
@@ -6,6 +7,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const backButton = document.querySelector(".back-to-messages");
   const messagesSidebar = document.querySelector(".messages-sidebar");
   const chatArea = document.querySelector(".chat-area");
+  const messageForm = document.getElementById("messageForm");
+  const chatMessages = document.querySelector(".chat-messages");
+
+  // Message form handling
+  if (messageForm) {
+    messageForm.addEventListener("submit", (e) => {
+      e.preventDefault(); // Prevent form submission
+      const input = messageForm.querySelector("input");
+      const message = input.value.trim();
+      
+      if (message) {
+        const newMessage = document.createElement("div");
+        newMessage.className = "message-bubble sent";
+        
+        const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        
+        newMessage.innerHTML = `
+          <p>${message}</p>
+          <span class="message-time">${time}</span>
+        `;
+        
+        chatMessages.appendChild(newMessage);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        
+        // Clear input
+        input.value = "";
+      }
+    });
+  }
 
   // ACTIVE LINK SWITCHING
   if (menuItems) {
@@ -27,18 +57,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-// INCOME CARDS SCROLL FUNCTIONALITY
-function scrollIncomeCards(direction) {
-  const container = document.getElementById("income-cards-container");
-  const scrollAmount = 150;
-
-  if (direction === "left") {
-    container.scrollLeft -= scrollAmount;
-  } else if (direction === "right") {
-    container.scrollLeft += scrollAmount;
-  }
-}
-
   // RESPONSIVE MESSAGE AREA
   if (messageItems && backButton && messagesSidebar && chatArea) {
     function showChatArea() {
@@ -51,10 +69,12 @@ function scrollIncomeCards(direction) {
       chatArea.classList.remove("show");
     }
 
+    // Initial state for mobile
     if (window.innerWidth <= 768) {
       showMessagesList();
     }
 
+    // Message item click handler
     messageItems.forEach(item => {
       item.addEventListener('click', () => {
         if (window.innerWidth <= 768) {
@@ -63,6 +83,7 @@ function scrollIncomeCards(direction) {
       });
     });
 
+    // Back button handler
     backButton.addEventListener('click', () => {
       showMessagesList();
     });
@@ -84,7 +105,6 @@ function scrollIncomeCards(direction) {
     // Resize handler with input focus check
     let lastWidth = window.innerWidth;
     window.addEventListener('resize', () => {
-      // Only handle resize if the width actually changed and input is not focused
       if (lastWidth !== window.innerWidth && !isInputFocused) {
         lastWidth = window.innerWidth;
         if (window.innerWidth > 768) {
@@ -99,25 +119,4 @@ function scrollIncomeCards(direction) {
       }
     });
   }
-
-  messageItems.forEach((item) => {
-    item.addEventListener("click", () => {
-      if (window.innerWidth <= 768) {
-        showChatArea();
-      }
-    });
-  });
-
-  backButton.addEventListener("click", () => {
-    showMessagesList();
-  });
-
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 768) {
-      messagesSidebar.classList.remove("hide");
-      chatArea.classList.remove("show");
-    } else {
-      showMessagesList();
-    }
-  });
 });
