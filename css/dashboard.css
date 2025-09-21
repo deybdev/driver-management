@@ -171,7 +171,6 @@
   font-size: 1rem;
   padding: 5px 10px;
   border-radius: 20px;
-  margin-bottom: 5px;
 }
 
 .income-change.positive {
@@ -329,6 +328,10 @@
   }
   .income-cards {
     padding: auto 0;
+  }
+
+  .income-card{
+    padding: 10px;
   }
 
   .income-card p{

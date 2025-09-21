@@ -266,10 +266,10 @@
   flex-shrink: 0; /* Prevent button from shrinking */
 }
 
-.chat-input .attach-btn {
-  background: none;
-  color: var(--primary-color);
-  font-size: 1.5rem;
+#messageForm .iconify {
+  color: #3f562c;
+  font-size: 1.9rem;
+  cursor: pointer;
 }
 
 .chat-input .attach-btn:hover {
@@ -291,6 +291,16 @@
   .messages-container {
     margin: -10px;
     height: calc(100vh - 80px);
+  }
+
+  .chat-input {
+    padding: 10px;
+  }
+
+  #messageForm .iconify {
+    color: #3f562c;
+    font-size: 1.5rem;
+    cursor: pointer;
   }
 
   .messages-sidebar {
@@ -319,7 +329,7 @@
     display: block;
   }
 
-  .chat-messages{
+  .chat-messages {
     padding: 10px 5px;
   }
 }
