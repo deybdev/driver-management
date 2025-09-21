@@ -12,14 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// Initialize with offline state (no class means offline)
 statusBtn.addEventListener("click", () => {
-  statusBtn.classList.toggle("online");
-
-  if (statusBtn.classList.contains("online")) {
-    statusText.textContent = "Online";
-  } else {
-    statusText.textContent = "Offline";
-  }
+    statusBtn.classList.toggle("online");
+    statusText.textContent = statusBtn.classList.contains("online") ? "Online" : "Offline";
 });
 
 // INCOME CARDS SCROLL FUNCTIONALITY

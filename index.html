@@ -19,29 +19,30 @@
       </div>
       <p>MENU</p>
       <ul>
-        <li class="active">
+        <li class="active" onclick="this.querySelector('a').click()">
           <span
             class="iconify"
             data-icon="material-symbols:dashboard-rounded"
           ></span
-          ><a href="#"> Dashboard</a>
+          ><a href="index.html"> Dashboard</a>
         </li>
 
-        <li>
+        <li onclick="this.querySelector('a').click()">
           <span class="iconify" data-icon="uis:schedule"></span>
-          <a href="#"> Schedule</a>
+          <a href="schedule.html"> Schedule</a>
         </li>
-        <li>
+
+        <li onclick="this.querySelector('a').click()">
           <span class="iconify" data-icon="ic:round-message"></span
-          ><a href="#"> Messages</a>
+          ><a href="message.html"> Messages</a>
         </li>
-        <li>
+        <li onclick="this.querySelector('a').click()">
           <span class="iconify" data-icon="solar:wallet-bold"></span
-          ><a href="#"> My Wallet</a>
+          ><a href="wallet.html"> My Wallet</a>
         </li>
-        <li>
+        <li onclick="this.querySelector('a').click()">
           <span class="iconify" data-icon="iconamoon:profile-fill"></span
-          ><a href="#"> Profile</a>
+          ><a href="profile.html"> Profile</a>
         </li>
       </ul>
     </nav>
@@ -58,7 +59,7 @@
         </div>
         <button id="statusBtn" class="btn-primary">
           <span class="circle-online"></span>
-          <span class="status-text">Online</span>
+          <span class="status-text">Offline</span>
         </button>
       </div>
 

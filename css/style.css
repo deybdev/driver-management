@@ -6,6 +6,8 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 /* ========== CSS VARIABLES ========== */
@@ -30,15 +32,19 @@ body {
 }
 
 html {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  overflow: auto;
   scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
 }
 
 /* ========== MAIN LAYOUT ========== */
 .main-content {
-  margin-left: 280px;
-  padding: 30px;
+  margin-left: 200px;
+  padding: 20px;
   background: var(--background);
   min-height: 100vh;
   transition: var(--transition);
@@ -54,24 +60,23 @@ html {
   top: 0;
   left: 0;
   transition: var(--transition);
-  z-index: 1000;
 }
 
 .sidebar img {
-  width: 150px;
-  margin: 0 auto 15px;
-  padding: 15px 0;
+  width: 120px;
+  margin: 0 auto 10px;
+  padding: 10px 0;
   display: block;
 }
 
 .sidebar p {
   text-align: left;
   font-size: 0.9rem;
-  margin: 15px 0 15px 45px;
+  margin: 12px 0 12px 30px;
   color: var(--text-color);
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
 
 .sidebar ul {
@@ -81,14 +86,9 @@ html {
 .sidebar ul li {
   display: flex;
   align-items: center;
-  padding: 15px;
+  padding: 12px;
   cursor: pointer;
   transition: var(--transition);
-}
-
-.sidebar ul li:hover {
-  background-color: rgba(63, 86, 44, 0.1);
-  transform: translateX(5px);
 }
 
 .sidebar ul li.active {
@@ -103,17 +103,17 @@ html {
 }
 
 .sidebar .iconify {
-  font-size: 22px;
-  margin: 0 12px 0 30px;
+  font-size: 18px;
+  margin: 0 10px 0 15px;
   color: var(--text-color);
   transition: var(--transition);
 }
 
 .sidebar ul li a {
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   color: var(--text-color);
-  font-weight: 600;
+  font-weight: 500;
   transition: var(--transition);
 }
 
@@ -122,10 +122,6 @@ html {
 /* Mobile Responsive Styles */
 
 @media (max-width: 768px) {
-  .main-content {
-    margin-left: 0;
-    padding: 20px 15px 80px 15px;
-  }
 
   .sidebar {
     position: fixed;
@@ -164,11 +160,6 @@ html {
     margin: 0;
   }
 
-  .sidebar ul li:hover {
-    background-color: transparent;
-    transform: none;
-  }
-
   .sidebar .iconify {
     margin: 0 0 5px 0;
     font-size: 20px;
@@ -201,31 +192,5 @@ html {
     padding: 30px;
   }
 
-  .sidebar {
-    width: 280px;
-  }
 
-  .sidebar img {
-    width: 180px;
-    margin: 0 auto 20px;
-    padding: 20px 0;
-  }
-
-  .sidebar p {
-    font-size: 1rem;
-    margin: 20px 0 20px 50px;
-  }
-
-  .sidebar ul li {
-    padding: 16px 20px;
-  }
-
-  .sidebar .iconify {
-    font-size: 24px;
-    margin: 0 12px 0 35px;
-  }
-
-  .sidebar ul li a {
-    font-size: 1.1rem;
-  }
 }
