@@ -51,7 +51,7 @@
       <div class="dashboard-header">
         <div class="dashboard-text-header">
           <h2>Dashboard</h2>
-          <p>Welcome back, Marvin! Ready to manage your tasks?</p>
+          <p>Welcome back, <strong>Marvin</strong>! Ready for your next journey?</p>
         </div>
         <button id="statusBtn" class="btn-primary">
           <span class="circle-online"></span>
@@ -59,63 +59,78 @@
         </button>
       </div>
       
-      <!-- DASHBOARD MAIN CONTENT -->
-      <div class="dashboard-content">
-        <!-- Left Column - Statistics Cards -->
-        <div class="stats-column">
-          <div class="stats-container">
-            <div class="stat-card">
-              <div class="stat-icon completed-icon">
-                <span class="iconify" data-icon="material-symbols:directions-car"></span>
-              </div>
-              <div class="stat-content">
-                <h3>36</h3>
-                <p>Completed</p>
-              </div>
+      <!-- STATISTICS CARDS SECTION -->
+      <div class="stats-overview">
+        <div class="stats-container">
+          <div class="stat-card">
+            <div class="stat-icon booking-icon">
+              <span class="iconify" data-icon="material-symbols:location-on"></span>
             </div>
-
-            <div class="stat-card">
-              <div class="stat-icon cancelled-icon">
-                <span class="iconify" data-icon="material-symbols:cancel"></span>
-              </div>
-              <div class="stat-content">
-                <h3>2</h3>
-                <p>Cancelled</p>
-              </div>
+            <div class="stat-content">
+              <h3>1</h3>
+              <p>Ongoing</p>
             </div>
           </div>
+
+          <div class="stat-card">
+            <div class="stat-icon completed-icon">
+              <span class="iconify" data-icon="material-symbols:directions-car"></span>
+            </div>
+            <div class="stat-content">
+              <h3>36</h3>
+              <p>Completed</p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon cancelled-icon">
+              <span class="iconify" data-icon="material-symbols:cancel"></span>
+            </div>
+            <div class="stat-content">
+              <h3>2</h3>
+              <p>Cancelled</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- DASHBOARD MAIN CONTENT -->
+      <div class="dashboard-content">
+        <!-- Left Column - Now for additional content if needed -->
+        <div class="left-column">
+          <!-- This column can be used for additional widgets or content -->
         </div>
 
         <!-- Right Column - Income and Booking History -->
         <div class="right-column">
           <!-- Income Statistics Section -->
           <div class="income-section">
-            <h3>Income Statistics</h3>
+            <div class="income-header">
+              <h3>Income Statistics</h3>
+            </div>
             
             
-            <div class="income-cards">
-              <div class="income-card">
+            <!-- Income Cards -->
+            <div class="income-cards" id="income-cards-container">
+              <div class="income-card" data-content="today">
                 <p>Today</p>
                 <h4>₱1,500</h4>
                 <span class="income-change positive">+10%</span>
               </div>
-              <div class="income-card">
+              <div class="income-card" data-content="week">
                 <p>This Week</p>
                 <h4>₱7,500</h4>
                 <span class="income-change positive">+4%</span>
               </div>
-              <div class="income-card">
+              <div class="income-card" data-content="month">
                 <p>This Month</p>
                 <h4>₱29,215</h4>
                 <span class="income-change positive">+14%</span>
               </div>
-              <div class="income-card">
-                <p>Average</p>
-                <h4>₱700</h4>
-                <span class="income-change positive">+5%</span>
-              </div>
+              
             </div>
 
+            <!-- Income Legend -->
             <div class="income-legend">
               <div class="legend-item">
                 <span class="legend-color online"></span>
@@ -162,7 +177,7 @@
                   </tr>
                   <tr>
                     <td>02</td>
-                    <td>Juan Dela Cruz</td>
+                    <td>Maria Santos</td>
                     <td>SM Fairview to Minoy Aquino Parks</td>
                     <td>2023-01-15</td>
                     <td>₱230</td>
@@ -170,11 +185,19 @@
                   </tr>
                   <tr>
                     <td>03</td>
-                    <td>Juan Dela Cruz</td>
+                    <td>Pedro Garcia</td>
                     <td>QC Circle to SM Novaliches</td>
                     <td>2023-01-15</td>
                     <td>₱230</td>
                     <td><span class="status cancelled">CANCELLED</span></td>
+                  </tr>
+                  <tr>
+                    <td>04</td>
+                    <td>Ana Reyes</td>
+                    <td>Fairview to Commonwealth</td>
+                    <td>2023-01-14</td>
+                    <td>₱180</td>
+                    <td><span class="status pending">PENDING</span></td>
                   </tr>
                 </tbody>
               </table>

@@ -21,3 +21,16 @@ statusBtn.addEventListener("click", () => {
     statusText.textContent = "Offline";
   }
 });
+
+// INCOME CARDS SCROLL FUNCTIONALITY
+function scrollIncomeCards(direction) {
+  const container = document.getElementById('income-cards-container');
+  const scrollAmount = 150;
+  
+  if (direction === 'left') {
+    container.scrollLeft -= scrollAmount;
+  } else if (direction === 'right') {
+    container.scrollLeft += scrollAmount;
+  }
+}
+
