@@ -6,7 +6,7 @@
     <title>Message</title>
     <!-- IMPORT CSS -->
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/message.css" />
     <!-- ICONIFY CDN -->
     <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
   </head>
@@ -46,5 +46,93 @@
         </li>
       </ul>
     </nav>
+
+    <div class="main-content">
+      
+      <div class="messages-container">
+        <!-- Left sidebar - Message list -->
+        <div class="messages-sidebar">
+          <div class="messages-header">
+            <h2>Messages</h2>
+            <div class="search-box">
+              <span class="iconify" data-icon="material-symbols:search"></span>
+              <input type="text" placeholder="Search">
+            </div>
+            <div class="messages-categories">
+              <p class="category-title">All messages</p>
+
+              <div class="message-item">
+                <div class="avatar">LJ</div>
+                <div class="message-info">
+                  <div class="message-top">
+                    <h4>Lebron James</h4>
+                    <span class="time">05:21</span>
+                  </div>
+                  <p class="message-preview">Dito na kami sa place pre, ikaw na lang</p>
+                </div>
+              </div>
+
+              <div class="message-item unread">
+                <div class="avatar">TD</div>
+                <div class="message-info">
+                  <div class="message-top">
+                    <h4>Tom Davis</h4>
+                    <span class="time">16:33</span>
+                  </div>
+                  <p class="message-preview">Pre shot daw sabi ni Juan?</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right side - Chat area -->
+        <div class="chat-area">
+          <div class="chat-header">
+            <div class="chat-user">
+              <div class="back-to-messages">
+                <span class="iconify" data-icon="mdi:arrow-left"></span>
+              </div>
+              <div class="avatar">JD</div>
+              <div class="user-info">
+                <h3>Juan Dela Cruz</h3>
+              </div>
+            </div>
+            <button class="more-options">
+              <span class="iconify" data-icon="mdi:dots-vertical"></span>
+            </button>
+          </div>
+
+          <div class="chat-messages">
+            <div class="message-bubble received">
+              <p>Tara shot kaya pare?</p>
+              <span class="message-time">2:00pm</span>
+            </div>
+            <div class="message-bubble received">
+              <p>Sagot ko na tol</p>
+              <span class="message-time">2:00pm</span>
+            </div>
+            <div class="message-bubble sent">
+              <p>G pre, kain lang saglit</p>
+              <span class="message-time">2:00pm</span>
+            </div>
+          </div>
+
+          <div class="chat-input">
+            <input type="text" placeholder="Enter your message">
+            <button class="attach-btn">
+              <span class="iconify" data-icon="mdi:attachment"></span>
+            </button>
+            <button class="send-btn">
+              <span class="iconify" data-icon="material-symbols:send"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+    <script src="js/script.js"></script>
+
   </body>
 </html>

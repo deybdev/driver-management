@@ -12,7 +12,7 @@
 
 /* ========== CSS VARIABLES ========== */
 :root {
-  --primary-color: #3f562c;
+  --primary-color: rgb(63, 86, 44);
   --secondary-color: #988342;
   --text-color: rgba(0, 0, 0, 0.52);
   --white: #ffffff;
@@ -43,8 +43,8 @@ html::-webkit-scrollbar {
 
 /* ========== MAIN LAYOUT ========== */
 .main-content {
-  margin-left: 200px;
-  padding: 20px;
+  margin-left: 280px;
+  padding: 15px;
   background: var(--background);
   min-height: 100vh;
   transition: var(--transition);
@@ -123,6 +123,10 @@ html::-webkit-scrollbar {
 
 @media (max-width: 768px) {
 
+  .main-content {
+    margin-left: 0;
+  }
+
   .sidebar {
     position: fixed;
     top: auto;
@@ -185,12 +189,3 @@ html::-webkit-scrollbar {
   }
 }
 
-/* Large Screen Styles */
-@media (min-width: 1200px) {
-  .main-content {
-    margin-left: 280px;
-    padding: 30px;
-  }
-
-
-}
