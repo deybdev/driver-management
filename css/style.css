@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* ========== GLOBAL RESET ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ========== CSS VARIABLES ========== */
+:root {
+  --primary-color: #3f562c;
+  --secondary-color: #988342;
+  --text-color: rgba(0, 0, 0, 0.52);
+  --white: #ffffff;
+  --background: #f9f9f9;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+  --border-radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+/* ========== GLOBAL STYLES ========== */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: var(--background);
+}
+
+html {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+/* ========== MAIN LAYOUT ========== */
+.main-content {
+  margin-left: 280px;
+  padding: 30px;
+  background: var(--background);
+  min-height: 100vh;
+  transition: var(--transition);
+}
+
+/* ========== SIDEBAR STYLES ========== */
+.sidebar {
+  height: 100vh;
+  width: 280px;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.15);
+  background: var(--white);
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: var(--transition);
+  z-index: 1000;
+}
+
+.sidebar img {
+  width: 150px;
+  margin: 0 auto 15px;
+  padding: 15px 0;
+  display: block;
+}
+
+.sidebar p {
+  text-align: left;
+  font-size: 0.9rem;
+  margin: 15px 0 15px 45px;
+  color: var(--text-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.sidebar ul li:hover {
+  background-color: rgba(63, 86, 44, 0.1);
+  transform: translateX(5px);
+}
+
+.sidebar ul li.active {
+  background-color: var(--secondary-color);
+  color: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.sidebar ul li.active a,
+.sidebar ul li.active .iconify {
+  color: var(--white);
+}
+
+.sidebar .iconify {
+  font-size: 22px;
+  margin: 0 12px 0 30px;
+  color: var(--text-color);
+  transition: var(--transition);
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: var(--text-color);
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+/* ========== RESPONSIVE STYLES ========== */
+
+/* Mobile Responsive Styles */
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding: 20px 15px 80px 15px;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.15);
+  }
+
+  .sidebar img {
+    display: none;
+  }
+
+  .sidebar p {
+    display: none;
+  }
+
+  .sidebar ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sidebar ul li {
+    flex-direction: column;
+    padding: 8px 5px;
+    flex: 1;
+    text-align: center;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .sidebar ul li:hover {
+    background-color: transparent;
+    transform: none;
+  }
+
+  .sidebar .iconify {
+    margin: 0 0 5px 0;
+    font-size: 20px;
+  }
+
+  .sidebar ul li a {
+    font-size: 0.7rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+  }
+
+  .sidebar ul li.active {
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .sidebar ul li.active .iconify,
+  .sidebar ul li.active a {
+    color: var(--secondary-color);
+  }
+}
+
+/* Large Screen Styles */
+@media (min-width: 1200px) {
+  .main-content {
+    margin-left: 280px;
+    padding: 30px;
+  }
+
+  .sidebar {
+    width: 280px;
+  }
+
+  .sidebar img {
+    width: 180px;
+    margin: 0 auto 20px;
+    padding: 20px 0;
+  }
+
+  .sidebar p {
+    font-size: 1rem;
+    margin: 20px 0 20px 50px;
+  }
+
+  .sidebar ul li {
+    padding: 16px 20px;
+  }
+
+  .sidebar .iconify {
+    font-size: 24px;
+    margin: 0 12px 0 35px;
+  }
+
+  .sidebar ul li a {
+    font-size: 1.1rem;
+  }
+}
