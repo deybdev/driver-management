@@ -10,12 +10,28 @@
   width: 300px;
   border-right: 1px solid #eee;
   background: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.messages-header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 10;
 }
 
 .messages-header h2 {
   font-size: 1.5rem;
-  padding: 20px;
+  padding: 20px 20px 15px;
   color: #333;
+  margin: 0;
+}
+
+.messages-categories {
+  overflow-y: auto;
+  height: calc(100vh - 185px);
+  padding: 0 10px 20px;
 }
 
 .search-box {
@@ -24,7 +40,7 @@
   background: #f5f5f5;
   border-radius: 8px;
   padding: 8px 12px;
-  margin: 0 10px 20px;
+  margin: 0 10px 15px;
 }
 
 .search-box input {
@@ -45,8 +61,7 @@
 .category-title {
   font-size: 0.8rem;
   color: #666;
-  margin-bottom: 10px;
-  padding: 0 20px;
+  margin: 5px 20px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -54,9 +69,11 @@
 .message-item {
   display: flex;
   align-items: center;
-  padding: 12px;
+  padding: 12px 15px;
   cursor: pointer;
   transition: background 0.3s ease;
+  border-radius: 8px;
+  margin-bottom: 2px;
 }
 
 .message-item.unread {
@@ -68,8 +85,8 @@
 }
 
 .avatar {
-  padding: 10px 13px;
-  width: 40px;
+  min-width: 40px;
+  height: 40px;
   background: var(--primary-color);
   border-radius: 50%;
   color: #fff;
@@ -83,6 +100,7 @@
 
 .message-info {
   flex: 1;
+  padding-right: 8px;
   min-width: 0; /* This is important for text truncation to work in flex items */
 }
 
@@ -126,6 +144,8 @@
   display: flex;
   flex-direction: column;
   background: #f8f9fa;
+  height: 100%;
+  position: relative;
 }
 
 .chat-header {
@@ -135,6 +155,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .chat-user {
@@ -180,7 +203,7 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  height: calc(100% - 140px); /* Subtract header and input heights */
+  height: calc(100vh - 200px); /* Adjust for header and input heights */
 }
 
 .message-bubble {
@@ -229,6 +252,9 @@
   background: #fff;
   border-top: 1px solid #eee;
   width: 100%;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
 }
 
 .chat-input form {
