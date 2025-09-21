@@ -67,12 +67,35 @@ function scrollIncomeCards(direction) {
       showMessagesList();
     });
 
+    // Track if input is focused
+    const chatInput = document.querySelector('.chat-input input');
+    let isInputFocused = false;
+
+    if (chatInput) {
+      chatInput.addEventListener('focus', () => {
+        isInputFocused = true;
+      });
+
+      chatInput.addEventListener('blur', () => {
+        isInputFocused = false;
+      });
+    }
+
+    // Resize handler with input focus check
+    let lastWidth = window.innerWidth;
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 768) {
-        messagesSidebar.classList.remove('hide');
-        chatArea.classList.remove('show');
-      } else {
-        showMessagesList();
+      // Only handle resize if the width actually changed and input is not focused
+      if (lastWidth !== window.innerWidth && !isInputFocused) {
+        lastWidth = window.innerWidth;
+        if (window.innerWidth > 768) {
+          messagesSidebar.classList.remove('hide');
+          chatArea.classList.remove('show');
+        } else {
+          // Don't automatically show messages list if chat is active
+          if (!chatArea.classList.contains('show')) {
+            showMessagesList();
+          }
+        }
       }
     });
   }
