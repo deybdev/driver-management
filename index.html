@@ -48,23 +48,24 @@
 
     <!-- MAIN CONTENT -->
     <div class="main-content">
+      <!-- DASHBOARD HEADER -->
       <div class="dashboard-header">
         <div class="dashboard-text-header">
           <h2>Dashboard</h2>
-          <p>Welcome back, <strong>Marvin</strong>! Ready for your next journey?</p>
+          <p>Welcome back, <strong>Driver!</strong> Ready for your next journey?</p>
         </div>
         <button id="statusBtn" class="btn-primary">
           <span class="circle-online"></span>
-          <span class="status-text">Offline</span>
+          <span class="status-text">Online</span>
         </button>
       </div>
-      
-      <!-- STATISTICS CARDS SECTION -->
+
+      <!-- STATISTICS OVERVIEW -->
       <div class="stats-overview">
         <div class="stats-container">
           <div class="stat-card">
-            <div class="stat-icon booking-icon">
-              <span class="iconify" data-icon="material-symbols:location-on"></span>
+            <div class="stat-icon ongoing-icon">
+              <span class="iconify" data-icon="uim:process"></span>
             </div>
             <div class="stat-content">
               <h3>1</h3>
@@ -74,7 +75,7 @@
 
           <div class="stat-card">
             <div class="stat-icon completed-icon">
-              <span class="iconify" data-icon="material-symbols:directions-car"></span>
+              <span class="iconify" data-icon="material-symbols:check-circle"></span>
             </div>
             <div class="stat-content">
               <h3>36</h3>
@@ -93,113 +94,85 @@
           </div>
         </div>
       </div>
-      
+
       <!-- DASHBOARD MAIN CONTENT -->
       <div class="dashboard-content">
-        <!-- Right Column - Income and Booking History -->
-        <div class="right-column">
-          <!-- Income Statistics Section -->
-          <div class="income-section">
-            <div class="income-header">
-              <h3>Income Statistics</h3>
-            </div>
+        <!-- Income Statistics Section -->
+        <div class="income-section">
+          <div class="income-header">
+            <h3>Income Statistics</h3>
             
-            
-            <!-- Income Cards -->
-            <div class="income-cards" id="income-cards-container">
-              <div class="income-card" data-content="today">
-                <p>Today</p>
-                <h4>₱1,500</h4>
-                <span class="income-change positive">+10%</span>
-              </div>
-              <div class="income-card" data-content="week">
-                <p>This Week</p>
-                <h4>₱7,500</h4>
-                <span class="income-change positive">+4%</span>
-              </div>
-              <div class="income-card" data-content="month">
-                <p>This Month</p>
-                <h4>₱29,215</h4>
-                <span class="income-change positive">+14%</span>
-              </div>
-              
-            </div>
-
-            <div class="income-legend">
-              <div class="legend-item">
-                <span class="legend-color online"></span>
-                <span>Online Income</span>
-                <span class="legend-amount">₱1,200</span>
-              </div>
-              <div class="legend-item">
-                <span class="legend-color cash"></span>
-                <span>Cash Income</span>
-                <span class="legend-amount">₱300</span>
-              </div>
-              <hr>
-              <div class="legend-item">
-                <span class="legend-color total"></span>
-                <span>Total Revenue</span>
-                <span class="legend-amount">₱1,500</span>
-              </div>
-            </div>
           </div>
 
-          <!-- Booking History Section -->
-          <div class="booking-history">
-            <h3>Booking History</h3>
-            <div class="table-container">
-              <table class="booking-table">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>PASSENGER</th>
-                    <th>ROUTE</th>
-                    <th>DATE</th>
-                    <th>FARE</th>
-                    <th>STATUS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>01</td>
-                    <td>Juan Dela Cruz</td>
-                    <td>SM North to QC Circle</td>
-                    <td>2023-01-15</td>
-                    <td>₱230</td>
-                    <td><span class="status completed">COMPLETED</span></td>
-                  </tr>
-                  <tr>
-                    <td>02</td>
-                    <td>Maria Santos</td>
-                    <td>SM Fairview to Minoy Aquino Parks</td>
-                    <td>2023-01-15</td>
-                    <td>₱230</td>
-                    <td><span class="status completed">COMPLETED</span></td>
-                  </tr>
-                  <tr>
-                    <td>03</td>
-                    <td>Pedro Garcia</td>
-                    <td>QC Circle to SM Novaliches</td>
-                    <td>2023-01-15</td>
-                    <td>₱230</td>
-                    <td><span class="status cancelled">CANCELLED</span></td>
-                  </tr>
-                  <tr>
-                    <td>04</td>
-                    <td>Ana Reyes</td>
-                    <td>Fairview to Commonwealth</td>
-                    <td>2023-01-14</td>
-                    <td>₱180</td>
-                    <td><span class="status pending">PENDING</span></td>
-                  </tr>
-                </tbody>
-              </table>
+          <div class="income-cards">
+            <div class="income-card">
+              <p>Today</p>
+              <h4>₱1,500</h4>
+              <span class="income-change positive">+10%</span>
+            </div>
+            <div class="income-card">
+              <p>This Week</p>
+              <h4>₱7,500</h4>
+              <span class="income-change positive">+25%</span>
+            </div>
+            <div class="income-card">
+              <p>This Month</p>
+              <h4>₱29,215</h4>
+              <span class="income-change positive">+15%</span>
+            </div>
+            <div class="income-card">
+              <p>Average</p>
+              <h4>₱700</h4>
+              <span class="income-change positive">+9%</span>
             </div>
           </div>
         </div>
+
+        <!-- Booking History Section -->
+        <div class="booking-history">
+          <h3>Booking History</h3>
+          <div class="table-container">
+            <table class="booking-table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Passenger</th>
+                  <th>Route</th>
+                  <th>Date</th>
+                  <th>Fare</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>01</td>
+                  <td>Juan Dela Cruz</td>
+                  <td>SM North to QC Circle</td>
+                  <td>2025-01-15</td>
+                  <td>₱120</td>
+                  <td><span class="status completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>02</td>
+                  <td>Juan Dela Cruz</td>
+                  <td>SM Fairview to North Avenue</td>
+                  <td>2025-01-15</td>
+                  <td>₱150</td>
+                  <td><span class="status ongoing">Ongoing</span></td>
+                </tr>
+                <tr>
+                  <td>03</td>
+                  <td>Juan Dela Cruz</td>
+                  <td>QC Circle to SM Novaliches</td>
+                  <td>2025-01-15</td>
+                  <td>₱200</td>
+                  <td><span class="status cancelled">Cancelled</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-       
     </div>
 
     <!-- IMPORT SCRIPT -->

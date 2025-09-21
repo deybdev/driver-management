@@ -1,467 +1,242 @@
+.main-content {
+  max-width: 1200px;
+  margin: 0 0 0 250px;
+  padding: 20px;
+}
+
+/* Dashboard Header */
 .dashboard-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 25px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  border-radius: 10px;
-  flex-wrap: wrap;
+  margin-bottom: 30px;
 }
 
 .dashboard-text-header h2 {
-  margin: 0;
-  font-size: 1.5rem;
-  color: #333333;
+  font-size: 2rem;
+  margin-bottom: 5px;
 }
 
 .dashboard-text-header p {
-  margin: 5px 0 0;
-  font-size: 16px;
-  color: #666666;
+  font-size: 1rem;
+  color: #555;
 }
 
-#statusBtn {
+.btn-primary {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 16px;
-  font-size: 0.8rem;
-  font-weight: 600;
-  border: none;
+  background-color: #a3ffb8;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
   border-radius: 25px;
+  padding: 10px 20px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  background-color: #e0e0e0;
-  color: #333333;
-}
-
-#statusBtn.online {
-  background-color: #4caf50;
-  color: #ffffff;
+  font-weight: 600;
+  transition: background 0.3s;
 }
 
 .circle-online {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--primary-color);
   border-radius: 50%;
-  background-color: #333;
-  transition: background-color 0.3s ease;
+  margin-right: 8px;
 }
 
-#statusBtn.online .circle-online {
-  background-color: #ffffff;
-}
-
-.status-text {
-  font-weight: 600;
-  font-size: 0.9rem;
-}
-
-/* ========== DASHBOARD LAYOUT ========== */
-
+/* Statistics Overview */
 .stats-overview {
-  margin: 25px 0;
+  margin-bottom: 30px;
 }
 
 .stats-container {
   display: flex;
-  gap: 20px;
+  gap: 10px;
   overflow-x: auto;
-  overflow-y: hidden;
-  padding: 5px 0;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 5px;
+  width: 100%;
 }
 
-.dashboard-content {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 30px;
-}
-
-.left-column {
-  display: none;
-}
-
-.right-column {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-/* ========== STATISTICS CARDS ========== */
 .stat-card {
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   display: flex;
   align-items: center;
-  gap: 15px;
-  transition: all 0.3s ease;
-  flex: 0 0 280px; /* Fixed width for scrolling */
-  min-width: 250px;
-  white-space: nowrap;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 15px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  flex: 1 0 auto;
+  min-width: 200px;
 }
 
 .stat-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  color: #ffffff;
+  font-size: 2.2rem;
+  margin-right: 15px;
+  border-radius: 20px;
+  padding: 0;
+  color: #fff;
 }
 
-.booking-icon {
-  background: #2196f3;
+.ongoing-icon {
+  color: #00751B;
 }
-
 .completed-icon {
-  background: #4caf50;
+  color: #00307E;
 }
-
 .cancelled-icon {
-  background: #f44336;
+  color: #7A0000;
 }
 
 .stat-content h3 {
-  font-size: 2rem;
-  font-weight: 700;
+  font-size: 1.5rem;
   margin-bottom: 5px;
-  color: #333;
 }
 
 .stat-content p {
   font-size: 0.9rem;
-  color: rgba(0, 0, 0, 0.6);
-  margin: 0;
+  color: #555;
 }
 
-/* ========== INCOME STATISTICS ========== */
+/* Income Section */
 .income-section {
-  background: #ffffff;
-  padding: 20px;
+  margin-bottom: 30px;
+  background-color: #fff;
+  padding: 15px;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  flex: 1;
-  max-width: 100%;
-  box-sizing: border-box;
 }
 
-/* Income Header */
-.income-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
+.income-header h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
 
-.income-section h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 0;
-  color: #333;
-}
-
-/* Income Cards */
 .income-cards {
   display: flex;
   align-items: center;
-  width: 100%;
-  gap: 15px;
+  gap: 20px;
   overflow-x: auto;
-  overflow-y: hidden;
-  padding: 5px 0;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  padding: 5px;
 }
 
-
 .income-card {
-  background: #ffffff;
-  padding: 15px 30px;
-  border: 1px solid #e8eaed;
-  border-radius: 10px;
+    flex: 1 0 auto;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
   text-align: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  flex: 0 0 200px; /* Fixed width for scrolling */
-  min-width: 180px;
-  white-space: nowrap;
+  min-width: 150px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .income-card h4 {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: #333;
+  font-size: 1.5rem;
+  color: #000000;
+}
+
+.income-card p {
+  font-size: .8rem;
+  color: #555;
 }
 
 .income-change {
-  font-size: 0.8rem;
-  font-weight: 600;
+  display: inline-block;
+  font-size: 1rem;
+  padding: 5px 10px;
+  border-radius: 20px;
+  margin-bottom: 5px;
 }
 
 .income-change.positive {
-  color: #4caf50;
+  color: #13d13f;
 }
 
 .income-change.negative {
-  color: #f44336;
+  color: #e63946;
 }
 
-/* Income Legend */
-.income-legend {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.income-legend hr {
-  border: none;
-  border-top: 1px solid #e3e8eb;
-  margin: 0;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.8rem;
-}
-
-.legend-color {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-
-.legend-color.online {
-  background: #4caf50;
-}
-
-.legend-color.cash {
-  background: #ff9800;
-}
-
-.legend-color.total {
-  background: #2196f3;
-}
-
-.legend-amount {
-  font-weight: 500;
-  color: #333;
-  margin-left: auto;
-}
-
-.legend-item .legend-color.total + span + .legend-amount {
-  font-weight: 800;
-}
-/* ========== BOOKING HISTORY ========== */
-.booking-history {
-  background: #ffffff;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  flex: 1;
-}
-
+/* Booking History Table */
 .booking-history h3 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-  color: #333;
+  font-size: 1rem;
+  margin-bottom: 10px;
 }
 
 .table-container {
   overflow-x: auto;
-  border-radius: 8px;
-  border: 1px solid #f1f3f4;
 }
 
 .booking-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.9rem;
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.booking-table th,
+.booking-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
 }
 
 .booking-table th {
-  background: #f8f9fa;
-  padding: 12px 15px;
-  text-align: left;
-  font-weight: 600;
-  color: #555;
-  border-bottom: 1px solid #dee2e6;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  letter-spacing: 0.5px;
-}
-
-.booking-table td {
-  padding: 12px 15px;
-  border-bottom: 1px solid #f1f3f4;
-  color: #333;
-}
-
-.booking-table tbody tr:hover {
-  background: #f8f9fa;
-  transition: all 0.3s ease;
-}
-
-.booking-table tbody tr:last-child td {
-  border-bottom: none;
+  background-color: #2a9d8f;
+  color: #fff;
 }
 
 .status {
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.75rem;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  color: #fff;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
 }
 
 .status.completed {
-  background: #e8f5e8;
-  color: #4caf50;
+  background-color: #3B82F6;
 }
-
+.status.ongoing {
+  background-color: #f4a261;
+}
 .status.cancelled {
-  background: #ffebee;
-  color: #f44336;
+  background-color: #e63946;
 }
 
-.status.pending {
-  background: #fff3e0;
-  color: #ff9800;
-}
-
-/* ------------------ RESPONSIVE ------------------ */
-@media (max-width: 1024px) {
-  .stats-container {
-    gap: 15px;
-    padding: 5px 0;
-  }
-
-  .stat-card {
-    padding: 20px;
-    flex: 0 0 240px; /* Smaller fixed width for tablets */
-    min-width: 220px;
-  }
-
-  .income-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .income-cards {
-    justify-content: flex-start;
-    gap: 12px;
-    padding: 5px 0;
-  }
-}
-
+/* Responsive adjustments */
 @media (max-width: 768px) {
   .main-content {
-    margin-left: 0;
-    margin-bottom: 80px;
+    margin: 0;
+    padding: 10px;
   }
-
-  .stat-card {
-    padding: 18px;
+  .dashboard-header {
     flex-direction: row;
-    text-align: left;
-    flex: 0 0 200px;
-    min-width: 180px;
+    align-items: flex-start;
   }
-
-  .income-section {
-    padding: 18px;
-    width: 30%;
+  .dashboard-text-header h2 {
+    font-size: 1.5rem;
   }
-
-  .income-card {
-    padding: 12px 20px;
-    min-width: 140px;
+  .dashboard-text-header p {
+    font-size: 0.7rem;
+    max-width: 200px;
   }
-  
-  .legend-item {
-    font-size: 0.8rem;
+  .btn-primary {
+    font-size: .7rem;
+    padding: 5px 15px;
   }
-  
-  .legend-amount {
-    font-size: 0.8rem;
-    font-weight: 600;
-    margin-left: auto;
-    flex-shrink: 0;
+  .income-header h3 {
+    font-size: 1rem;
+  }
+  .income-cards{
+    padding: auto 0;
   }
 }
 
 @media (max-width: 480px) {
-  .stats-container {
-    gap: 10px;
-    padding: 3px 0;
-  }
-
-  .stat-card {
-    padding: 15px;
-    gap: 12px;
-    flex: 0 0 160px;
-    min-width: 140px;
-  }
-
-  .stat-icon {
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
-  }
-
-  .stat-content h3 {
-    font-size: 1.5rem;
-  }
-
-  .stat-content p {
-    font-size: 0.8rem;
-  }
-
-  .income-card {
-    flex: 0 0 140px;
-    padding: 12px 15px;
-    min-width: 120px;
-  }
-
-  .income-section {
-    padding: 15px;
-    width: 22.5rem;
-  }
-
-  .income-header h3 {
-    font-size: 0.95rem;
-  }
-
-  .income-card h4 {
-    font-size: 1.1rem;
-  }
-
-  .income-change {
-    font-size: 0.75rem;
-  }
-
-  .income-legend{
-    text-align: left;
-  }
-
-  .legend-item {
-    font-size: 0.75rem;
+  .booking-table th,
+  .booking-table td {
+    padding: 10px;
   }
 }
