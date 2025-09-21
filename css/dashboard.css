@@ -74,11 +74,6 @@
   -webkit-overflow-scrolling: touch;
 }
 
-/* Hide scrollbar for webkit browsers */
-.stats-container {
-  scrollbar-width: none;
-}
-
 .dashboard-content {
   display: grid;
   grid-template-columns: 1fr;
@@ -108,11 +103,6 @@
   flex: 0 0 280px; /* Fixed width for scrolling */
   min-width: 250px;
   white-space: nowrap;
-}
-
-.stat-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
 .stat-icon {
@@ -190,7 +180,6 @@
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
-
 
 
 .income-card {
@@ -392,14 +381,29 @@
     padding: 18px;
     flex-direction: row;
     text-align: left;
-    flex: 0 0 200px; /* Fixed width for tablet scrolling */
+    flex: 0 0 200px;
     min-width: 180px;
+  }
+
+  .income-section {
+    padding: 18px;
+    width: 30%;
   }
 
   .income-card {
     padding: 12px 20px;
-    flex: 0 0 160px; /* Fixed width for scrolling */
     min-width: 140px;
+  }
+  
+  .legend-item {
+    font-size: 0.8rem;
+  }
+  
+  .legend-amount {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-left: auto;
+    flex-shrink: 0;
   }
 }
 
@@ -412,7 +416,7 @@
   .stat-card {
     padding: 15px;
     gap: 12px;
-    flex: 0 0 160px; /* Fixed width for mobile scrolling */
+    flex: 0 0 160px;
     min-width: 140px;
   }
 
@@ -431,13 +435,14 @@
   }
 
   .income-card {
-    flex: 0 0 140px; /* Fixed width for scrolling */
+    flex: 0 0 140px;
     padding: 12px 15px;
     min-width: 120px;
   }
 
   .income-section {
     padding: 15px;
+    width: 22.5rem;
   }
 
   .income-header h3 {
@@ -450,6 +455,10 @@
 
   .income-change {
     font-size: 0.75rem;
+  }
+
+  .income-legend{
+    text-align: left;
   }
 
   .legend-item {
