@@ -32,6 +32,7 @@ body {
 html {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
 
 /* ========== MAIN LAYOUT ========== */

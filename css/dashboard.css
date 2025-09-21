@@ -79,13 +79,13 @@
 }
 
 .ongoing-icon {
-  color: #00751B;
+  color: #00751b;
 }
 .completed-icon {
-  color: #00307E;
+  color: #00307e;
 }
 .cancelled-icon {
-  color: #7A0000;
+  color: #7a0000;
 }
 
 .stat-content h3 {
@@ -106,9 +106,22 @@
   border-radius: 12px;
 }
 
+.income-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.income-header a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
 .income-header h3 {
   font-size: 1.5rem;
-  margin-bottom: 10px;
 }
 
 .income-cards {
@@ -120,7 +133,7 @@
 }
 
 .income-card {
-    flex: 1 0 auto;
+  flex: 1 0 auto;
   background-color: #fff;
   border-radius: 12px;
   padding: 20px;
@@ -136,7 +149,7 @@
 }
 
 .income-card p {
-  font-size: .8rem;
+  font-size: 0.8rem;
   color: #555;
 }
 
@@ -156,59 +169,132 @@
   color: #e63946;
 }
 
-/* Booking History Table */
-.booking-history h3 {
-  font-size: 1rem;
-  margin-bottom: 10px;
+/* Income Legend */
+.income-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 30%;
+}
+.legend-color.online {
+  background: var(--primary-color);
+}
+.legend-color.cash {
+  background: var(--secondary-color);
+}
+.legend-color.total {
+  background: #0db835;
+}
+
+.legend-amount {
+  margin-left: auto;
+  font-weight: 600;
+}
+
+.booking-history {
+  width: 100%;
+}
+
+.booking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap; /* wrap on small screens */
+}
+
+.booking-header a {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
 .table-container {
-  overflow-x: auto;
+  width: 100%;
+  overflow: hidden;
 }
 
 .booking-table {
   width: 100%;
+  min-width: 400px;
   border-collapse: collapse;
   background-color: #fff;
   border-radius: 12px;
-  overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  table-layout: fixed;
 }
+
+/* Column widths */
+.booking-table th:nth-child(1),
+.booking-table td:nth-child(1) {
+  width: 40px;
+}
+
+.booking-table th:nth-child(2),
+.booking-table td:nth-child(2) {
+  width: 10px;
+}
+
+.booking-table th:nth-child(3),
+.booking-table td:nth-child(3) {
+  width: 28px;
+}
+
+
 
 .booking-table th,
 .booking-table td {
   padding: 12px 15px;
   text-align: left;
   border-bottom: 1px solid #eee;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.8rem;
 }
 
 .booking-table th {
-  background-color: #2a9d8f;
-  color: #fff;
+  background-color: #acaaaa;
+  color: var(--text-color);
+  text-transform: uppercase;
 }
 
 .status {
   padding: 5px 10px;
   border-radius: 12px;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: #fff;
   font-weight: 600;
 }
 
 .status.completed {
-  background-color: #3B82F6;
+  background-color: #1eff53;
 }
-.status.ongoing {
-  background-color: #f4a261;
-}
+
 .status.cancelled {
   background-color: #e63946;
 }
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .main-content {
     margin: 0;
+    margin-bottom: 90px;
     padding: 10px;
   }
   .dashboard-header {
@@ -223,20 +309,52 @@
     max-width: 200px;
   }
   .btn-primary {
-    font-size: .7rem;
+    font-size: 0.7rem;
     padding: 5px 15px;
   }
   .income-header h3 {
     font-size: 1rem;
   }
-  .income-cards{
+  .income-cards {
     padding: auto 0;
+  }
+
+  .income-section {
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .booking-header h3{
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .booking-table th,
   .booking-table td {
-    padding: 10px;
+    padding: 8px;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .booking-table th:nth-child(5),
+  .booking-table td:nth-child(5) {
+    width: 60px;
+  }
+
+  .booking-table th:nth-child(6),
+  .booking-table td:nth-child(6) {
+    width: 80px;
+  }
+
+  .status {
+    font-size: 0.7rem;
+    padding: 4px 6px;
+    display: inline-block;
+    width: auto;
+    min-width: 70px;
+    text-align: center;
   }
 }

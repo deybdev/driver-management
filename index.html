@@ -52,7 +52,9 @@
       <div class="dashboard-header">
         <div class="dashboard-text-header">
           <h2>Dashboard</h2>
-          <p>Welcome back, <strong>Driver!</strong> Ready for your next journey?</p>
+          <p>
+            Welcome back, <strong>Driver!</strong> Ready for your next journey?
+          </p>
         </div>
         <button id="statusBtn" class="btn-primary">
           <span class="circle-online"></span>
@@ -75,7 +77,10 @@
 
           <div class="stat-card">
             <div class="stat-icon completed-icon">
-              <span class="iconify" data-icon="material-symbols:check-circle"></span>
+              <span
+                class="iconify"
+                data-icon="material-symbols:check-circle"
+              ></span>
             </div>
             <div class="stat-content">
               <h3>36</h3>
@@ -101,7 +106,7 @@
         <div class="income-section">
           <div class="income-header">
             <h3>Income Statistics</h3>
-            
+            <a href="#">View All</a>
           </div>
 
           <div class="income-cards">
@@ -126,45 +131,56 @@
               <span class="income-change positive">+9%</span>
             </div>
           </div>
+          <div class="income-legend">
+            <div class="income-legend">
+              <div class="legend-item">
+                <span class="legend-color online"></span>
+                <span>Online Income</span>
+                <span class="legend-amount">₱1,200</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color cash"></span>
+                <span>Cash Income</span>
+                <span class="legend-amount">₱300</span>
+              </div>
+              <hr />
+              <div class="legend-item">
+                <span class="legend-color total"></span>
+                <span>Total Revenue</span>
+                <span class="legend-amount">₱1,500</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Booking History Section -->
         <div class="booking-history">
-          <h3>Booking History</h3>
+          <div class="booking-header">
+            <h3>Booking History</h3>
+            <a href="#">View All</a>
+          </div>
           <div class="table-container">
             <table class="booking-table">
               <thead>
                 <tr>
-                  <th>ID</th>
-                  <th>Passenger</th>
                   <th>Route</th>
-                  <th>Date</th>
                   <th>Fare</th>
                   <th>Status</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>01</td>
-                  <td>Juan Dela Cruz</td>
                   <td>SM North to QC Circle</td>
-                  <td>2025-01-15</td>
                   <td>₱120</td>
                   <td><span class="status completed">Completed</span></td>
                 </tr>
                 <tr>
-                  <td>02</td>
-                  <td>Juan Dela Cruz</td>
                   <td>SM Fairview to North Avenue</td>
-                  <td>2025-01-15</td>
                   <td>₱150</td>
-                  <td><span class="status ongoing">Ongoing</span></td>
+                  <td><span class="status completed">Completed</span></td>
                 </tr>
                 <tr>
-                  <td>03</td>
-                  <td>Juan Dela Cruz</td>
                   <td>QC Circle to SM Novaliches</td>
-                  <td>2025-01-15</td>
                   <td>₱200</td>
                   <td><span class="status cancelled">Cancelled</span></td>
                 </tr>
