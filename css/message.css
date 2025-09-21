@@ -1,7 +1,6 @@
 .messages-container {
   display: flex;
   background: #fff;
-  border-radius: 12px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   height: calc(100vh - 30px);
   overflow: hidden;
@@ -316,5 +315,9 @@
 
   .back-to-messages {
     display: block;
+  }
+
+  .chat-messages{
+    padding: 10px 5px;
   }
 }

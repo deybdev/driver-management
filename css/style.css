@@ -44,7 +44,7 @@ html::-webkit-scrollbar {
 /* ========== MAIN LAYOUT ========== */
 .main-content {
   margin-left: 280px;
-  padding: 15px;
+  padding: 10px;
   background: var(--background);
   min-height: 100vh;
   transition: var(--transition);
