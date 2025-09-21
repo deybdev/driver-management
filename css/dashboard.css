@@ -241,7 +241,7 @@
 /* Column widths */
 .booking-table th:nth-child(1),
 .booking-table td:nth-child(1) {
-  width: 40px;
+  width: 35px;
 }
 
 .booking-table th:nth-child(2),
@@ -251,7 +251,7 @@
 
 .booking-table th:nth-child(3),
 .booking-table td:nth-child(3) {
-  width: 28px;
+  width: 30px;
 }
 
 
