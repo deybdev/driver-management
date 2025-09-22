@@ -46,5 +46,234 @@
         </li>
       </ul>
     </nav>
+    <div class="main-content">
+      <div class="schedule-header">
+        <div class="schedule-text-header">
+          <h2>Schedule</h2>
+          <p>Manage your bookings and vehicle assignments</p>
+        </div>
+      </div>
+
+      <div class="radio-group-wrapper">
+        <div class="pill-toggle-group">
+          <input
+            type="radio"
+            id="pending-sched"
+            name="schedule-filter"
+            value="pending"
+            checked
+          />
+          <label for="pending-sched">Pending</label>
+
+          <input
+            type="radio"
+            id="booking-sched"
+            name="schedule-filter"
+            value="booking"
+          />
+          <label for="booking-sched">Booking</label>
+
+          <input
+            type="radio"
+            id="coding-sched"
+            name="schedule-filter"
+            value="coding"
+          />
+          <label for="coding-sched">Coding</label>
+        </div>
+      </div>
+
+      <!-- BOOKING SCHEDULE -->
+      <div class="booking-schedule">
+        <span class="iconify" data-icon="ic:baseline-refresh"></span>
+        <div class="header-table">
+          <h3>Booking Schedule</h3>
+          <div class="schedule-table-data">
+            <div class="table-data">
+              <span>1</span>
+              <p>Active</p>
+            </div>
+            <div class="table-data">
+              <span>5</span>
+              <p>Completed</p>
+            </div>
+          </div>
+        </div>
+        <div class="table-container">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>PASSENGER</th>
+                <th>ROUTE</th>
+                <th>DATE</th>
+                <th>TIME</th>
+                <th>FARE</th>
+                <th class="sticky-column">STATUS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Juan Dela Cruz</td>
+                <td>SM North EDSA to QC Circle</td>
+                <td>Sept 15, 2025</td>
+                <td>08:30 AM</td>
+                <td class="fare">₱126</td>
+                <td><span class="status ongoing">ONGOING</span></td>
+              </tr>
+              <tr>
+                <td>Maria Santos</td>
+                <td>Fairview to UP Diliman</td>
+                <td>Sept 15, 2025</td>
+                <td>08:30 AM</td>
+                <td class="fare">₱300</td>
+                <td><span class="status completed">COMPLETED</span></td>
+              </tr>
+              <tr>
+                <td>Lebron James</td>
+                <td>Commonwealth to Eastwood City</td>
+                <td>Sept 15, 2025</td>
+                <td>08:30 AM</td>
+                <td class="fare">₱150</td>
+                <td><span class="status completed">COMPLETED</span></td>
+              </tr>
+              <tr>
+                <td>Thanos</td>
+                <td>Novaliches to Trinoma Mall</td>
+                <td>Sept 15, 2025</td>
+                <td>08:30 AM</td>
+                <td class="fare">₱239</td>
+                <td><span class="status completed">COMPLETED</span></td>
+              </tr>
+              <tr>
+                <td>Thanos</td>
+                <td>Novaliches to Trinoma Mall</td>
+                <td>Sept 15, 2025</td>
+                <td>08:30 AM</td>
+                <td class="fare">₱239</td>
+                <td><span class="status completed">COMPLETED</span></td>
+              </tr>
+              <tr>
+                <td>Thanos</td>
+                <td>Novaliches to Trinoma Mall</td>
+                <td>Sept 15, 2025</td>
+                <td>08:30 AM</td>
+                <td class="fare">₱239</td>
+                <td><span class="status completed">COMPLETED</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- PENDING SCHEDULES -->
+      <div class="booking-schedule">
+        <span class="iconify" data-icon="ic:baseline-refresh"></span>
+        <div class="header-table">
+          <h3>Pending Schedule</h3>
+        </div>
+        <div class="table-container">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>PASSENGER</th>
+                <th>ROUTE</th>
+                <th>DATE</th>
+                <th>TIME</th>
+                <th>FARE</th>
+                <th class="sticky-column">ACTIONS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Juan Dela Cruz</td>
+                <td>SM North EDSA to QC Circle</td>
+                <td>Sept 15, 2025</td>
+                <td>08:30 AM</td>
+                <td class="fare">₱126</td>
+                <td class="table-buttons"><button>Approve</button></td>
+              </tr>
+              <tr>
+                <td>Maria Santos</td>
+                <td>Fairview to UP Diliman</td>
+                <td>Sept 15, 2025</td>
+                <td>08:30 AM</td>
+                <td class="fare">₱300</td>
+                <td class="table-buttons"><button>Approve</button></td>
+              </tr>
+              <tr>
+                <td>Lebron James</td>
+                <td>Commonwealth to Eastwood City</td>
+                <td>Sept 15, 2025</td>
+                <td>08:30 AM</td>
+                <td class="fare">₱150</td>
+                <td class="table-buttons"><button>Approve</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- CODING SCHEDULE -->
+      <div class="booking-schedule">
+        <span class="iconify" data-icon="ic:baseline-refresh"></span>
+        <div class="header-table">
+          <h3>Coding Schedule</h3>
+          <div class="schedule-table-data">
+            <div class="table-data">
+              <span>1</span>
+              <p>Coded Table</p>
+            </div>
+            <div class="table-data">
+              <span>5</span>
+              <p>Available</p>
+            </div>
+          </div>
+        </div>
+        <div class="table-container">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>PLATE NUMBER</th>
+                <th>CODING DAY</th>
+                <th>NEXT CODING</th>
+                <th>QC ZONE</th>
+                <th class="sticky-column">STATUS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>ABC123</td>
+                <td>MONDAY</td>
+                <td>Sept 15, 2025</td>
+                <td>West QC</td>
+                <td><span class="status coding">CODING</span></td>
+              </tr>
+              <tr>
+                <td>HSS723</td>
+                <td>TUESDAY</td>
+                <td>Sept 15, 2025</td>
+                <td>Central QC</td>
+                <td><span class="status available">AVAILABLE</span></td>
+              </tr>
+              <tr>
+                <td>NSK522</td>
+                <td>WEDNESDAY</td>
+                <td>Sept 15, 2025</td>
+                <td>East QC</td>
+                <td><span class="status available">AVAILABLE</span></td>
+              </tr>
+              <tr>
+                <td>APK292</td>
+                <td>THURSDAY</td>
+                <td>Sept 15, 2025</td>
+                <td>North QC</td>
+                <td><span class="status available">AVAILABLE</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <script src="js/schedule.js"></script>
   </body>
 </html>

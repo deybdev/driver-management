@@ -101,7 +101,7 @@
 .message-info {
   flex: 1;
   padding-right: 8px;
-  min-width: 0; /* This is important for text truncation to work in flex items */
+  min-width: 0;
 }
 
 .message-top {
@@ -203,7 +203,7 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  height: calc(100vh - 200px); /* Adjust for header and input heights */
+  height: calc(100vh - 200px);
 }
 
 .message-bubble {
@@ -289,7 +289,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
-  flex-shrink: 0; /* Prevent button from shrinking */
+  flex-shrink: 0;
 }
 
 #messageForm .iconify {
@@ -317,6 +317,9 @@
   .messages-container {
     margin: -10px;
     height: calc(100vh - 80px);
+  }
+  .main-content{
+    margin-bottom: 0;
   }
 
   .chat-input {

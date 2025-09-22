@@ -125,6 +125,8 @@ html::-webkit-scrollbar {
 
   .main-content {
     margin-left: 0;
+    margin-bottom: 90px;
+
   }
 
   .sidebar {
@@ -137,6 +139,7 @@ html::-webkit-scrollbar {
     width: 100%;
     padding: 10px 0;
     box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.15);
+    z-index: 1;
   }
 
   .sidebar img {

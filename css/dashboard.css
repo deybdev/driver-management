@@ -1,25 +1,23 @@
 
 
-.main-content {
-  max-width: 1200px;
-  padding: 20px;
-}
-
-/* Dashboard Header */
 .dashboard-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+  background: #fff;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .dashboard-text-header h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 5px;
 }
 
 .dashboard-text-header p {
-  font-size: 1rem;
+  font-size: .9rem;
   color: #555;
 }
 
@@ -64,7 +62,6 @@
   background-color: #3f562c;
 }
 
-/* Statistics Overview */
 .stats-overview {
   margin-bottom: 30px;
 }
@@ -120,7 +117,6 @@
   color: var(--text-color);
 }
 
-/* Income Section */
 .income-section {
   margin-bottom: 30px;
   background-color: #fff;
@@ -190,7 +186,6 @@
   color: #e63946;
 }
 
-/* Income Legend */
 .income-legend {
   display: flex;
   flex-direction: column;
@@ -310,11 +305,8 @@
 .status.cancelled {
   background-color: #e63946;
 }
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .main-content {
-    margin: 0;
-    margin-bottom: 90px;
     padding: 10px;
   }
   .dashboard-header {

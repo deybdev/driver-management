@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Message form handling
   if (messageForm) {
     messageForm.addEventListener("submit", (e) => {
-      e.preventDefault(); // Prevent form submission
+      e.preventDefault();
       const input = messageForm.querySelector("input");
       const message = input.value.trim();
       
@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
         chatMessages.appendChild(newMessage);
         chatMessages.scrollTop = chatMessages.scrollHeight;
         
-        // Clear input
         input.value = "";
       }
     });
@@ -47,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Initialize with offline state (no class means offline)
   if (statusBtn && statusText) {
     statusBtn.addEventListener("click", () => {
       statusBtn.classList.toggle("online");
@@ -69,12 +67,10 @@ document.addEventListener("DOMContentLoaded", () => {
       chatArea.classList.remove("show");
     }
 
-    // Initial state for mobile
     if (window.innerWidth <= 768) {
       showMessagesList();
     }
 
-    // Message item click handler
     messageItems.forEach(item => {
       item.addEventListener('click', () => {
         if (window.innerWidth <= 768) {
@@ -83,12 +79,10 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // Back button handler
     backButton.addEventListener('click', () => {
       showMessagesList();
     });
 
-    // Track if input is focused
     const chatInput = document.querySelector('.chat-input input');
     let isInputFocused = false;
 
@@ -111,7 +105,6 @@ document.addEventListener("DOMContentLoaded", () => {
           messagesSidebar.classList.remove('hide');
           chatArea.classList.remove('show');
         } else {
-          // Don't automatically show messages list if chat is active
           if (!chatArea.classList.contains('show')) {
             showMessagesList();
           }
