@@ -85,6 +85,11 @@
                 <span>Member since Jan 2024</span>
               </div>
             </div>
+            <!-- Logout Button -->
+            <button class="logout-btn" onclick="logout()">
+              <span class="iconify" data-icon="material-symbols:logout"></span>
+              Logout
+            </button>
           </div>
 
           <!-- Quick Stats Section -->
@@ -284,6 +289,14 @@
           });
         });
       });
+
+      // Logout function
+      function logout() {
+        // Confirm logout
+        if (confirm("Are you sure you want to logout?")) {
+          window.location.href = "index.html";
+        }
+      }
     </script>
   </body>
 </html>
