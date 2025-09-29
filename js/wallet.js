@@ -37,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   window.addEventListener('resize', resize); resize();
 
-  // Modal system
   const open = (id) => {
     scrollY = window.pageYOffset;
     const m = document.getElementById(id); if (!m) return;
@@ -50,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.top = ''; window.scrollTo(0, scrollY);
   };
 
-  // Delegation for modal open/close
   document.addEventListener('click', e => {
     const openBtn = e.target.closest('[data-open]');
     const closeBtn = e.target.closest('[data-close]');
@@ -59,12 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const m = e.target.classList.contains('modal') && e.target;
     if (m) close(m.id);
   });
-
-  // Escape closes modals
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') document.querySelectorAll('.modal.show').forEach(m => close(m.id));
-  });
-
   // Quick amount buttons
   const topUp = document.getElementById('topup-modal');
   if (topUp) {

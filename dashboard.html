@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <!-- IMPORT CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <!-- ICONIFY CDN -->
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+  </head>
+  <body>
+    <!-- NAVBAR (Reusable when using backend via PHP include) -->
+    <nav id="sidebar" class="sidebar">
+      <!-- LOGO -->
+      <div>
+        <img src="assets/logo.png" alt="" />
+      </div>
+      <p>MENU</p>
+      <ul>
+        <li class="active" onclick="this.querySelector('a').click()">
+          <span
+            class="iconify"
+            data-icon="material-symbols:dashboard-rounded"
+          ></span
+          ><a href="dashboard.html"> Dashboard</a>
+        </li>
+
+        <li onclick="this.querySelector('a').click()">
+          <span class="iconify" data-icon="uis:schedule"></span>
+          <a href="schedule.html"> Schedule</a>
+        </li>
+
+        <li onclick="this.querySelector('a').click()">
+          <span class="iconify" data-icon="ic:round-message"></span
+          ><a href="message.html"> Messages</a>
+        </li>
+        <li onclick="this.querySelector('a').click()">
+          <span class="iconify" data-icon="solar:wallet-bold"></span
+          ><a href="wallet.html"> My Wallet</a>
+        </li>
+        <li onclick="this.querySelector('a').click()">
+          <span class="iconify" data-icon="iconamoon:profile-fill"></span
+          ><a href="profile.html"> Profile</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+      <!-- DASHBOARD HEADER -->
+      <div class="dashboard-header">
+        <div class="dashboard-text-header">
+          <h2>Dashboard</h2>
+          <p>
+            Welcome back, <strong>Driver!</strong> Ready for your next journey?
+          </p>
+        </div>
+        <button id="statusBtn" class="btn-primary">
+          <span class="circle-online"></span>
+          <span class="status-text">Offline</span>
+        </button>
+      </div>
+
+      <!-- STATISTICS OVERVIEW -->
+      <div class="stats-overview">
+        <div class="stats-container">
+          <div class="stat-card">
+            <div class="stat-icon ongoing-icon">
+              <span class="iconify" data-icon="uim:process"></span>
+            </div>
+            <div class="stat-content">
+              <h3>1</h3>
+              <p>Ongoing</p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon completed-icon">
+              <span
+                class="iconify"
+                data-icon="material-symbols:check-circle"
+              ></span>
+            </div>
+            <div class="stat-content">
+              <h3>36</h3>
+              <p>Completed</p>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon cancelled-icon">
+              <span class="iconify" data-icon="material-symbols:cancel"></span>
+            </div>
+            <div class="stat-content">
+              <h3>2</h3>
+              <p>Cancelled</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DASHBOARD MAIN CONTENT -->
+      <div class="dashboard-content">
+        <!-- Income Statistics Section -->
+        <div class="income-section">
+          <div class="income-header">
+            <h3>Income Statistics</h3>
+            <a href="#">View All</a>
+          </div>
+
+          <div class="income-cards">
+            <div class="income-card">
+              <p>Today</p>
+              <h4>₱1,500</h4>
+              <span class="income-change positive">+10%</span>
+            </div>
+            <div class="income-card">
+              <p>This Week</p>
+              <h4>₱7,500</h4>
+              <span class="income-change positive">+25%</span>
+            </div>
+            <div class="income-card">
+              <p>This Month</p>
+              <h4>₱29,215</h4>
+              <span class="income-change positive">+15%</span>
+            </div>
+            <div class="income-card">
+              <p>Average</p>
+              <h4>₱700</h4>
+              <span class="income-change positive">+9%</span>
+            </div>
+          </div>
+          <div class="income-legend">
+            <div class="income-legend">
+              <div class="legend-item">
+                <span class="legend-color online"></span>
+                <span>Online Income</span>
+                <span class="legend-amount">₱1,200</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color cash"></span>
+                <span>Cash Income</span>
+                <span class="legend-amount">₱300</span>
+              </div>
+              <hr />
+              <div class="legend-item">
+                <span class="legend-color total"></span>
+                <span>Total Revenue</span>
+                <span class="legend-amount">₱1,500</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Booking History Section -->
+        <div class="booking-history">
+          <div class="booking-header">
+            <h3>Booking History</h3>
+            <a href="#">View All</a>
+          </div>
+          <div class="table-container">
+            <table class="booking-table">
+              <thead>
+                <tr>
+                  <th>Route</th>
+                  <th>Fare</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>SM North to QC Circle</td>
+                  <td>₱120</td>
+                  <td><span class="status completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>SM Fairview to North Avenue</td>
+                  <td>₱150</td>
+                  <td><span class="status completed">Completed</span></td>
+                </tr>
+                <tr>
+                  <td>QC Circle to SM Novaliches</td>
+                  <td>₱200</td>
+                  <td><span class="status cancelled">Cancelled</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IMPORT SCRIPT -->
+    <script src="js/script.js"></script>
+  </body>
+</html>

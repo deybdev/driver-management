@@ -6,6 +6,7 @@
     <title>Profile</title>
     <!-- IMPORT CSS -->
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/profile.css" />
     <link rel="stylesheet" href="css/dashboard.css" />
     <!-- ICONIFY CDN -->
     <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
@@ -24,7 +25,7 @@
             class="iconify"
             data-icon="material-symbols:dashboard-rounded"
           ></span
-          ><a href="index.html"> Dashboard</a>
+          ><a href="dashboard.html"> Dashboard</a>
         </li>
 
         <li onclick="this.querySelector('a').click()">
@@ -46,5 +47,243 @@
         </li>
       </ul>
     </nav>
+    <div class="main-content">
+      <h1 class="page-title">Profile</h1>
+      <div class="profile-container">
+        <!-- Left Column -->
+        <div class="left-column">
+          <!-- Profile Card -->
+          <div class="profile-card">
+            <div class="profile-avatar">
+              <img
+                src="https://scontent.fcrk3-2.fna.fbcdn.net/v/t39.30808-1/541061886_2002119353875993_4404890327560701031_n.jpg?stp=cp6_dst-jpg_s200x200_tt6&_nc_cat=104&ccb=1-7&_nc_sid=e99d92&_nc_eui2=AeH3PI-bIsYTfPsmMPRGAD3_vYdDKM5grJi9h0MozmCsmAzHLgtSUrmzUJ23V-gzc6rHs-fuTbThWgxu4SrOJn9I&_nc_ohc=n1bDQk6tSNMQ7kNvwEL0QA8&_nc_oc=AdmkerNbAYHbOWzve0SQlZYsiMSK9UMAh946SWKV-6pqxrjTKse8y0p6rMJ7I5qDyhY&_nc_zt=24&_nc_ht=scontent.fcrk3-2.fna&_nc_gid=tpLWQxDiYE6JedV3ZzrOgQ&oh=00_AfbGx1XdQzIpyDtdaEl_7XHA6RRnS1K3BRKgT3Jt0Amd1w&oe=68E07587"
+                alt="Profile Picture"
+              />
+            </div>
+            <div class="profile-info">
+              <h2>Libron Jims.</h2>
+              <span class="profile-role">Driver</span>
+              <span class="profile-status">ACTIVE</span>
+            </div>
+
+            <hr />
+
+            <div class="profile-contact">
+              <div class="contact-item">
+                <span class="iconify" data-icon="material-symbols:mail"></span>
+                <span>Lebronjames@gmail.com</span>
+              </div>
+              <div class="contact-item">
+                <span class="iconify" data-icon="material-symbols:call"></span>
+                <span>+63 912 345 6789</span>
+              </div>
+              <div class="contact-item">
+                <span
+                  class="iconify"
+                  data-icon="material-symbols:calendar-month"
+                ></span>
+                <span>Member since Jan 2024</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Stats Section -->
+          <div class="quick-stats">
+            <h3>Quick Stats</h3>
+            <div class="stats-row">
+              <span class="stat-label">Total Trips</span>
+              <span class="stat-value">142</span>
+            </div>
+            <div class="stats-row">
+              <span class="stat-label">Rating</span>
+              <span class="stat-value"
+                >4.8
+                <span
+                  class="iconify star"
+                  data-icon="material-symbols:star"
+                ></span
+              ></span>
+            </div>
+          </div>
+        </div>
+        <!-- Right Account Info Card -->
+        <div class="account-card">
+          <div class="account-tabs">
+            <button class="tab active" data-tab="account">
+              <span class="iconify" data-icon="material-symbols:person"></span>
+            </button>
+            <button class="tab" data-tab="permissions">
+              <span class="iconify" data-icon="material-symbols:shield"></span>
+            </button>
+            <button class="tab" data-tab="notifications">
+              <span
+                class="iconify"
+                data-icon="material-symbols:notifications"
+              ></span>
+            </button>
+            <button class="tab" data-tab="settings">
+              <span
+                class="iconify"
+                data-icon="material-symbols:settings"
+              ></span>
+            </button>
+          </div>
+
+          <!-- Account Information Tab -->
+          <div class="tab-content active" id="account">
+            <h3>Account Information</h3>
+            <div class="form-group">
+              <label>Username</label>
+              <input type="text" value="Lebronie" readonly />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="text" value="Lebronjames@gmail.com" readonly />
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="text" value="+63 912 345 6789" readonly />
+            </div>
+            <button class="change-password">Change Password</button>
+          </div>
+
+          <!-- Role & Permissions Tab -->
+          <div class="tab-content" id="permissions">
+            <h3>Role & Permissions</h3>
+            <div class="role-info">
+              <div class="role-badge">
+                <span
+                  class="iconify"
+                  data-icon="material-symbols:shield"
+                ></span>
+                <div>
+                  <strong>Current Role: Driver</strong>
+                  <p>
+                    You have access to driver-specific features and trip
+                    management.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="permissions-section">
+              <h4>Display Options (User Access)</h4>
+              <div class="permission-item">
+                <div class="permission-info">
+                  <span>View Trip History</span>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" checked />
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Notification Preferences Tab -->
+          <div class="tab-content" id="notifications">
+            <h3>Notification Preferences</h3>
+            <p class="tab-description">Manage your email and SMS alerts</p>
+
+            <div class="notification-group">
+              <div class="notification-item">
+                <div class="notification-info">
+                  <strong>Email Alerts</strong>
+                  <p>Receive notifications via email</p>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" checked />
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="notification-item">
+                <div class="notification-info">
+                  <strong>SMS Alerts</strong>
+                  <p>Receive notifications via SMS</p>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" />
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="notification-item">
+                <div class="notification-info">
+                  <strong>Trip Reminders</strong>
+                  <p>Get reminded about upcoming trips</p>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" checked />
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="notification-item">
+                <div class="notification-info">
+                  <strong>Payment Alerts</strong>
+                  <p>Notifications for payments and earnings</p>
+                </div>
+                <label class="toggle">
+                  <input type="checkbox" checked />
+                  <span class="slider"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- System Settings Tab -->
+          <div class="tab-content" id="settings">
+            <h3>System Settings</h3>
+            <p class="tab-description">
+              Manage accounts, reset data, and system preferences
+            </p>
+
+            <div class="settings-group">
+              <div class="form-group">
+                <label>Language</label>
+                <select>
+                  <option value="english" selected>English</option>
+                  <option value="spanish">Spanish</option>
+                  <option value="french">French</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Currency</label>
+                <select>
+                  <option value="usd" selected>USD</option>
+                  <option value="eur">EUR</option>
+                  <option value="php">PHP</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Tab functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const tabs = document.querySelectorAll(".tab");
+        const tabContents = document.querySelectorAll(".tab-content");
+
+        tabs.forEach((tab) => {
+          tab.addEventListener("click", function () {
+            const targetTab = this.getAttribute("data-tab");
+
+            // Remove active class from all tabs and content
+            tabs.forEach((t) => t.classList.remove("active"));
+            tabContents.forEach((content) =>
+              content.classList.remove("active")
+            );
+
+            // Add active class to clicked tab and corresponding content
+            this.classList.add("active");
+            document.getElementById(targetTab).classList.add("active");
+          });
+        });
+      });
+    </script>
   </body>
 </html>
