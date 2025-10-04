@@ -1,5 +1,4 @@
 
-/* Top-up and Cash-out common styles */
 .topup-form,
 .cashout-form {
   display: flex;
@@ -7,12 +6,10 @@
   gap: 16px;
 }
 
-/* More compact modal body for topup form */
 #topup-modal .modal-body {
   padding: 16px;
 }
 
-/* Add specific styles for top-up form to make it more compact */
 .topup-form .form-group {
   margin-bottom: 10px;
 }

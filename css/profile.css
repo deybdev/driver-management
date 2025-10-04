@@ -24,7 +24,7 @@
 .profile-card {
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  box-shadow: var(--shadow);
   padding: 20px 24px;
   width: 100%;
   display: flex;
@@ -108,7 +108,7 @@
   width: 100%;
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  box-shadow:var(--shadow);
   padding: 24px;
 }
 
@@ -152,7 +152,7 @@
 .account-card {
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  box-shadow: var(--shadow);
   flex: 1;
   padding: 20px;
   min-width: 400px;
@@ -250,7 +250,7 @@
   border-color: #cbd5e0;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   .profile-container {
     flex-direction: column;
     align-items: center;
@@ -269,8 +269,7 @@
   }
   
   .page-title {
-    padding-left: 16px;
-    font-size: 1.75rem;
+    display: none;
   }
 }
 
@@ -450,7 +449,7 @@ input:checked + .slider:before {
 }
 
 .slider:hover {
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow);
 }
 
 /* Logout Button */

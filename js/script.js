@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const chatMessages = document.querySelector(".chat-messages");
   const pillToggleGroup = document.querySelector(".pill-toggle-group");
   const schedules = document.querySelectorAll(".booking-schedule");
+  const detailsButtons = document.querySelectorAll(".details-btn");
+  const modal = document.getElementById("detailsModal");
+  const closeButton = document.querySelector(".close-modal");
 
   // MESSAGE SENDING
   if (messageForm) {
@@ -117,46 +120,79 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // RESPONSIVE PILL TOGGLE
-    const scheduleMap = {};
-  schedules.forEach(schedule => {
-    const title = schedule.querySelector(".header-table h3").textContent.toLowerCase();
-    if (title.includes("pending")) scheduleMap.pending = schedule;
-    if (title.includes("booking")) scheduleMap.booking = schedule;
-    if (title.includes("coding")) scheduleMap.coding = schedule;
+  // MODAL FUNCTIONALITY FOR DETAILS BUTTON
+  if (detailsButtons && modal) {
+    detailsButtons.forEach((button) => {
+      button.addEventListener("click", function () {
+        modal.style.display = "flex";
+        // Initialize map when modal opens
+        if (typeof window.initModalMap === 'function') {
+          setTimeout(() => {
+            window.initModalMap();
+          }, 100);
+        }
+      });
+    });
+  }
+
+  // Close modal when X button is clicked
+  if (closeButton && modal) {
+    closeButton.addEventListener("click", function () {
+      modal.style.display = "none";
+    });
+  }
+
+  // Close modal when clicking outside the modal content
+  if (modal) {
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  }
+
+  // Close modal with Escape key
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal && modal.style.display === "flex") {
+      modal.style.display = "none";
+    }
   });
 
-  function showSchedule(type) {
-    schedules.forEach(s => {
-      if (window.innerWidth <= 768) {
-        s.style.display = "none";
-        s.classList.remove("active");
-      } else {
-        s.style.display = "";
+  // SCHEDULE TAB FUNCTIONALITY
+  const scheduleTabGroup = document.querySelector(".pill-toggle-group");
+  const bookingsSection = document.getElementById("bookings-section");
+  const ongoingSection = document.getElementById("ongoing-section");
+  const historySection = document.getElementById("history-section");
+
+  function showScheduleSection(activeTab) {
+    // Hide all sections
+    if (bookingsSection) bookingsSection.style.display = "none";
+    if (ongoingSection) ongoingSection.style.display = "none";
+    if (historySection) historySection.style.display = "none";
+
+    // Show the active section
+    switch (activeTab) {
+      case "bookings":
+        if (bookingsSection) bookingsSection.style.display = "block";
+        break;
+      case "ongoing":
+        if (ongoingSection) ongoingSection.style.display = "block";
+        break;
+      case "history":
+        if (historySection) historySection.style.display = "block";
+        break;
+    }
+  }
+
+  // Add event listeners to schedule tabs
+  if (scheduleTabGroup) {
+    scheduleTabGroup.addEventListener("change", (e) => {
+      if (e.target.type === "radio") {
+        showScheduleSection(e.target.value);
       }
     });
 
-    if (window.innerWidth <= 768 && scheduleMap[type]) {
-      scheduleMap[type].style.display = "block";
-      scheduleMap[type].classList.add("active");
-    }
+    // Initialize with bookings tab active
+    showScheduleSection("bookings");
   }
-
-  pillToggleGroup.addEventListener("change", e => showSchedule(e.target.value));
-
-  window.addEventListener("resize", () => {
-    if (window.innerWidth <= 768) {
-      const active = pillToggleGroup.querySelector("input:checked");
-      showSchedule(active ? active.value : "pending");
-    } else {
-      schedules.forEach(s => (s.style.display = ""));
-    }
-  });
-
-  const pendingRadio = document.getElementById("pending-sched");
-  if (pendingRadio) {
-    pendingRadio.checked = true;
-    showSchedule("pending");
-  }
-
 });

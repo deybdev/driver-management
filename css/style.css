@@ -17,10 +17,13 @@
   --text-color: rgba(0, 0, 0, 0.52);
   --white: #ffffff;
   --background: #f9f9f9;
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --gray-color: #f7f7f7;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
   --border-radius: 12px;
   --transition: all 0.3s ease;
+  --primary-color-hover: #253b1e;
+  --secondary-color-hover: #B8935F;
 }
 
 /* ========== GLOBAL STYLES ========== */
