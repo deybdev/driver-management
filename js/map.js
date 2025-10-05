@@ -41,10 +41,10 @@ async function initMap(containerId) {
   await new Promise((resolve) => setTimeout(resolve, 100));
 
   const pickupName = document
-    .getElementById("pickup-location")
+    .getElementById("starting-location")
     .textContent.trim();
   const dropoffName = document
-    .getElementById("drpoff-location")
+    .getElementById("destination-location")
     .textContent.trim();
 
   const pickup = await geocode(pickupName);
@@ -104,20 +104,60 @@ async function initMap(containerId) {
 
   routing.on("routesfound", (e) => {
     const km = (e.routes[0].summary.totalDistance / 1000).toFixed(0);
+
+    // total time is in seconds → convert to minutes
+    const totalSeconds = e.routes[0].summary.totalTime;
+    const minutes = Math.round(totalSeconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const mins = minutes % 60;
+
+    // format ETA
+    let eta;
+    if (hours > 0) {
+      eta = `${hours}h ${mins}m`;
+    } else {
+      eta = `${mins} mins`;
+    }
+
     const label = L.divIcon({
       className: "dropoff-label",
       html: `
-      <div style="display: inline-flex; background:white;padding:5px;border-radius:8px;text-align:center;
-                  box-shadow:0 4px 10px rgba(0,0,0,0.2);font-family:Arial;">
-        <div style="display:flex;align-items:center;gap:8px;padding:5px 10px;">
-          <div style="font-size:1.5rem;font-weight:700;color:#000">${km}</div>
-          <div style="text-align:start">
-            <div style="font-size:0.9rem;color:#7e7e7e">km</div>
-            <div style="font-size:0.9rem;color:#7e7e7e">away</div>
+      <div
+        style="
+          display: inline-block;
+          background: #ffffff;
+          padding: 10px 16px;
+          border-radius: 10px;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          font-family: Arial, sans-serif;
+          min-width: 140px;
+        "
+      >
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 4px;
+          "
+        >
+          <div
+            style="
+              font-size: 1.2rem;
+              font-weight: 700;
+              color: #222;
+              line-height: 1;
+            "
+          >
+            ${km} km
+          </div>
+          <div style="font-size: 0.95rem; color: #555">
+            ETA: <span style="font-weight: 600; color: #000">${eta}</span>
           </div>
         </div>
       </div>`,
     });
+
     L.marker(dropoff, { icon: label }).addTo(mapInstance);
   });
 }

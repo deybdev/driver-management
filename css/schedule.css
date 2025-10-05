@@ -213,17 +213,6 @@
   color: var(--text-color);
 }
 
-@media (max-width: 600px) {
-  .note-text {
-    max-width: 100%;
-  }
-}
-
-@media (min-width: 601px) {
-  .note-text {
-    max-width: 100%;
-  }
-}
 
 /* Client Info */
 .client-info {
@@ -531,6 +520,17 @@
   gap: 1px;
 }
 
+.route-stats button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  color: var(--secondary-color);
+  margin-right: 5px;
+  font-size: 1rem;
+}
+
 .stat-label {
   font-size: 0.65rem;
   color: #6b7280;
@@ -631,82 +631,25 @@
 }
 
 /* Booking Comments */
-.booking-comments {
+.details-note {
   border-radius: 6px;
   padding: 12px;
   border: 1px solid #e5e7eb;
 }
 
-.booking-comments h4 {
+.details-note h4 {
   font-size: 0.9rem;
   color: #374151;
   font-weight: 600;
   margin: 0 0 12px 0;
 }
 
-.comment-section {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.comment-label {
-  font-size: 0.8rem;
-  color: #6b7280;
-  font-weight: 500;
-}
-
-.comment-textarea {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #d1d5db;
-  border-radius: 6px;
+.details-note-text {
   font-size: 0.85rem;
-  font-family: inherit;
   color: #374151;
-  resize: vertical;
-  min-height: 60px;
-  transition: all 0.3s ease;
-}
-
-.comment-textarea:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-}
-
-.comment-textarea::placeholder {
-  color: #9ca3af;
-  font-size: 0.8rem;
-}
-
-.comment-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 4px;
-}
-
-.save-comment-btn {
-  padding: 6px 12px;
-  background: var(--secondary-color);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.save-comment-btn:hover {
-  background: var(--secondary-color-hover);
-}
-
-.comment-status {
-  font-size: 0.75rem;
-  color: #10b981;
-  font-weight: 500;
+  line-height: 1.4;
+  word-wrap: break-word;
+  min-height: 40px;
 }
 
 /* Modal Action Buttons */

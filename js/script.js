@@ -196,3 +196,11 @@ document.addEventListener("DOMContentLoaded", () => {
     showScheduleSection("bookings");
   }
 });
+
+// FUNCTIONS
+function openInGoogleMaps(button) {
+  const locationName = button.closest(".route-item").querySelector(".location-name").innerText;
+  const encoded = encodeURIComponent(locationName);
+  window.open(`https://www.google.com/maps/search/?api=1&query=${encoded}`, "_blank");
+}
+

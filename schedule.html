@@ -137,9 +137,10 @@
             </div>
 
             <div class="booking-note">
-                <p class="note-text">
-                  I’m waiting at the guardhouse near the main gateasknboashsanp[apgponsa amsfpo].
-                </p>
+              <p class="note-text">
+                I’m waiting at the guardhouse near the main
+                gateasknboashsanp[apgponsa amsfpo].
+              </p>
             </div>
 
             <div class="booking-fare">
@@ -751,11 +752,11 @@
       </div>
 
       <!-- DETAILS MODAL -->
-      <div class="modal" id="detailsModal">
+      <div class="modal" id="detailsModal" onload="getCurrentLocation()">
         <div class="modal-content modal-xl">
           <div class="modal-header">
             <div>
-              <h3>Booking Details</h3>
+              <h3>Ongoing Booking Details</h3>
               <p class="reference">ID: 272625528262818</p>
             </div>
 
@@ -805,8 +806,12 @@
                           </div>
                         </div>
                         <div class="route-stats">
-                          <span class="stat-label">Distance</span>
-                          <span class="stat-value">4.2 km</span>
+                          <button onclick="openInGoogleMaps(this)">
+                            <span
+                              class="iconify"
+                              data-icon="tabler:location-filled"
+                            ></span>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -826,8 +831,12 @@
                           </div>
                         </div>
                         <div class="route-stats">
-                          <span class="stat-label">Est. Time</span>
-                          <span class="stat-value">45 mins</span>
+                          <button onclick="openInGoogleMaps(this)">
+                            <span
+                              class="iconify"
+                              data-icon="tabler:location-filled"
+                            ></span>
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -856,23 +865,27 @@
                 <!-- TOTAL FARE -->
 
                 <!-- BOOKING COMMENTS -->
-                <div class="booking-comments">
-                  <h4>Booking Comments</h4>
+                <div class="details-note">
+                  <h4>Note</h4>
                   <div class="comment-section">
-                    <textarea
-                      id="booking-notes"
-                      class="comment-textarea"
-                      placeholder="No additional comments."
-                      rows="1"
-                      readonly
-                    ></textarea>
+                    <div class="details-note-text">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Maiores dicta vero itaque aliquid, placeat eius! Sed,
+                      aspernatur est odio incidunt soluta eveniet consequuntur
+                      nesciunt sapiente odit aliquam officia, eum voluptatibus.
+                      Sed, magni perferendis cum id perspiciatis quisquam nulla
+                      nemo facilis aperiam temporibus delectus iste? Molestiae
+                      officiis soluta et sit excepturi, accusantium accusamus
+                      harum quis vitae adipisci explicabo aut laboriosam
+                      exercitationem.
+                    </div>
                   </div>
                 </div>
 
                 <!-- ACTION BUTTONS -->
                 <div class="modal-actions">
-                  <!-- At Pickup(Arrived at pickup), At Destination(Arrived at dropoff) -->
-                  <button class="btn-completed">At Pickup</button>
+                  <!-- Arrived at pickup(Arrived at pickup),Arrived at Destination(Arrived at dropoff) -->
+                  <button class="btn-completed">Arrived at Pickup</button>
 
                   <!-- Hide Cancel Booking after pickup -->
                   <button class="btn-cancel">Cancel Booking</button>
@@ -881,10 +894,10 @@
               <!-- MAP -->
               <div class="map-section">
                 <div id="map">
-                  <p id="pickup-location" style="display: none">
-                    Holy Spirit QC
+                  <p id="starting-location" style="display: none">
+                    Makati City  
                   </p>
-                  <p id="drpoff-location" style="display: none">
+                  <p id="destination-location" style="display: none">
                     San Bartolome QC
                   </p>
                 </div>
