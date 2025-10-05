@@ -67,13 +67,29 @@
       <!-- PILL TOGGLE -->
       <div class="pill-toggle-container">
         <div class="pill-toggle-group">
-          <input type="radio" id="bookings-tab" name="schedule-tab" value="bookings" checked>
+          <input
+            type="radio"
+            id="bookings-tab"
+            name="schedule-tab"
+            value="bookings"
+            checked
+          />
           <label for="bookings-tab" class="pill-tab">Bookings</label>
-          
-          <input type="radio" id="ongoing-tab" name="schedule-tab" value="ongoing">
+
+          <input
+            type="radio"
+            id="ongoing-tab"
+            name="schedule-tab"
+            value="ongoing"
+          />
           <label for="ongoing-tab" class="pill-tab">Ongoing</label>
-          
-          <input type="radio" id="history-tab" name="schedule-tab" value="history">
+
+          <input
+            type="radio"
+            id="history-tab"
+            name="schedule-tab"
+            value="history"
+          />
           <label for="history-tab" class="pill-tab">History</label>
         </div>
       </div>
@@ -116,6 +132,14 @@
                 </div>
                 <div class="route-details">
                   <div class="route-address">456 Oak Ave, Uptown</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="booking-note">
+              <div class="note-content">
+                <div class="note-text">
+                  I’m waiting at the guardhouse near the main gate.
                 </div>
               </div>
             </div>
@@ -163,6 +187,11 @@
                 </div>
               </div>
             </div>
+            <div class="booking-note">
+              <div class="note-content">
+                <div class="note-text">Please pick me up</div>
+              </div>
+            </div>
 
             <div class="booking-fare">
               <span>₱32.50</span>
@@ -208,6 +237,12 @@
               </div>
             </div>
 
+            <div class="booking-note">
+              <div class="note-content">
+                <div class="note-text">No note provided</div>
+              </div>
+            </div>
+
             <div class="booking-fare">
               <span>₱45.00</span>
             </div>
@@ -251,6 +286,14 @@
               </div>
             </div>
 
+            <div class="booking-note">
+              <div class="note-content">
+                <div class="note-text">
+                  I’m waiting at the guardhouse near the main gate.
+                </div>
+              </div>
+            </div>
+
             <div class="booking-fare">
               <span>₱45.00</span>
             </div>
@@ -259,7 +302,7 @@
               <button class="details-btn">Details</button>
             </div>
           </div>
-          <!-- Booking Card 3 -->
+          <!-- Booking Card 5 -->
           <div class="booking-card">
             <div class="booking-header">
               <div class="distance-info">
@@ -294,6 +337,14 @@
               </div>
             </div>
 
+            <div class="booking-note">
+              <div class="note-content">
+                <div class="note-text">
+                  I’m waiting at the guardhouse near the main gate.
+                </div>
+              </div>
+            </div>
+
             <div class="booking-fare">
               <span>₱45.00</span>
             </div>
@@ -302,7 +353,7 @@
               <button class="details-btn">Details</button>
             </div>
           </div>
-          <!-- Booking Card 4 -->
+          <!-- Booking Card 6 -->
           <div class="booking-card">
             <div class="booking-header">
               <div class="distance-info">
@@ -334,6 +385,12 @@
                 <div class="route-details">
                   <div class="route-address">NAIA Terminal 3</div>
                 </div>
+              </div>
+            </div>
+
+            <div class="booking-note">
+              <div class="note-content">
+                <div class="note-text">No note provided</div>
               </div>
             </div>
 
@@ -508,7 +565,9 @@
               <p>View your completed and cancelled rides</p>
             </div>
             <div class="filter-section">
-              <label for="history-filter" class="filter-label">Filter by status:</label>
+              <label for="history-filter" class="filter-label"
+                >Filter by status:</label
+              >
               <select id="history-filter" class="filter-dropdown">
                 <option value="all" selected>All</option>
                 <option value="completed">Completed</option>
@@ -710,7 +769,7 @@
               <span class="iconify" data-icon="mdi:close"></span>
             </button>
           </div>
-          <!-- MODAL BODY -->
+          <!-- MODAL BODY FOR ONGOING BOOKING-->
           <div class="modal-body details-modal-body">
             <div class="booking-details">
               <!-- PASSENGER DETAILS -->
@@ -798,25 +857,44 @@
 
                 <!-- TOTAL FARE -->
 
+                <!-- BOOKING COMMENTS -->
+                <div class="booking-comments">
+                  <h4>Booking Comments</h4>
+                  <div class="comment-section">
+                    <textarea
+                      id="booking-notes"
+                      class="comment-textarea"
+                      placeholder="No additional comments."
+                      rows="1"
+                      readonly
+                    ></textarea>
+                  </div>
+                </div>
+
                 <!-- ACTION BUTTONS -->
                 <div class="modal-actions">
-                  <button class="btn-completed">Accept Booking</button>
+                  <!-- At Pickup(Arrived at pickup), At Destination(Arrived at dropoff) -->
+                  <button class="btn-completed">At Pickup</button>
 
-                  <!-- <button class="btn-cancel">Cancel Booking</button> -->
+                  <!-- Hide Cancel Booking after pickup -->
+                  <button class="btn-cancel">Cancel Booking</button>
                 </div>
               </div>
               <!-- MAP -->
               <div class="map-section">
                 <div id="map">
                   <p id="pickup-location" style="display: none">
-                   Holy Spirit QC
+                    Holy Spirit QC
                   </p>
                   <p id="drpoff-location" style="display: none">
                     San Bartolome QC
+                  </p>
                 </div>
               </div>
             </div>
           </div>
+
+          <!-- MODAL FOR GETTING BOOKINGS-->
         </div>
       </div>
     </div>
