@@ -147,12 +147,12 @@
               <span>₱25.00</span>
             </div>
             <div class="booking-action">
-              <button class="accept-btn">Accept</button>
+              <button class="accept-btn" onclick="openModal('bookingAccepted')">Accept</button>
             </div>
           </div>
 
           <!-- Booking Card 2 -->
-          <div class="booking-card">
+          <div class="booking-card " id="details-btn">
             <div class="booking-header">
               <div class="distance-info">
                 <span class="iconify" data-icon="material-symbols:route"></span>
@@ -195,12 +195,12 @@
               <span>₱32.50</span>
             </div>
             <div class="booking-action">
-              <button class="accept-btn">Accept</button>
+              <button class="accept-btn" onclick="openModal('bookingAccepted')">Accept</button>
             </div>
           </div>
 
           <!-- Booking Card 3 -->
-          <div class="booking-card" id="details-btn"> 
+          <div class="booking-card" id="details-btn">
             <div class="booking-header">
               <div class="distance-info">
                 <span class="iconify" data-icon="material-symbols:route"></span>
@@ -493,9 +493,7 @@
             </div>
 
             <div class="booking-note">
-              <p class="note-text">
-                No note provided
-              </p>
+              <p class="note-text">No note provided</p>
             </div>
 
             <div class="booking-fare">
@@ -543,9 +541,7 @@
             </div>
 
             <div class="booking-note">
-              <p class="note-text">
-                No note provided
-              </p>
+              <p class="note-text">No note provided</p>
             </div>
 
             <div class="booking-fare">
@@ -957,6 +953,39 @@
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOOKING ACCEPTED -->
+      <div class="modal" id="bookingAccepted">
+        <div class="modal-content modal-sm">
+          <!-- Header -->
+          <div class="modal-header">
+            <h3 id="headerText">Ride Confirmed!</h3>
+            <button
+              class="close-modal"
+              onclick="closeModal('bookingAccepted')"
+            >
+              &times;
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <p id="confirmationText" class="confirmation-text">
+             Proceed to the passenger’s pickup point.
+            </p>
+          </div>
+
+          <!-- Footer -->
+          <div class="modal-footer">
+            <button
+              class="modal-btn secondary"
+              onclick="confirmBookingAndShowDetails()"
+              id="cancelArrivalBtn"
+            >
+              Okay
+            </button>
           </div>
         </div>
       </div>

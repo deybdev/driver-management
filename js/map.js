@@ -1,5 +1,6 @@
 let mapInstance, routing;
 export let isPickedup = false;
+const token = "pk.4524d26c6ef55e163b2ec8f30d698822";
 
 export function setPickedup(value) {
   isPickedup = value;
@@ -9,12 +10,12 @@ let pickup, dropoff, currentLocation, pickupName, dropoffName;
 
 async function geocode(place) {
   const res = await fetch(
-    `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
+    `https://us1.locationiq.com/v1/search.php?key=${token}&q=${encodeURIComponent(
       place
-    )}`
+    )}&format=json`
   );
   const data = await res.json();
-  if (!data.length) throw new Error("Location not found: " + place);
+  if (!data.length) throw new Error("Location not found");
   return [parseFloat(data[0].lat), parseFloat(data[0].lon)];
 }
 
@@ -46,10 +47,12 @@ export async function initMap(containerId) {
     14
   );
 
-  L.tileLayer("https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}", {
-    subdomains: ["mt0", "mt1", "mt2", "mt3"],
-    maxZoom: 20,
-  }).addTo(mapInstance);
+  L.tileLayer(
+    "https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png",
+    {
+      maxZoom: 20,
+    }
+  ).addTo(mapInstance);
 
   renderMap();
 }
@@ -88,10 +91,13 @@ export const renderMap = function renderRoute() {
   });
 
   // Add markers
-  L.marker(currentLocation, { icon: currentIcon }).addTo(mapInstance)
+  L.marker(currentLocation, { icon: currentIcon })
+    .addTo(mapInstance)
     .bindPopup("Current Location");
 
-  L.marker(!isPickedup ? pickup : dropoff, { icon: icon("red") }).addTo(mapInstance);
+  L.marker(!isPickedup ? pickup : dropoff, { icon: icon("red") }).addTo(
+    mapInstance
+  );
 
   // Routing
   routing = L.Routing.control({
@@ -130,7 +136,8 @@ export const renderMap = function renderRoute() {
         </div>`,
     });
 
-    L.marker(!isPickedup ? pickup : dropoff, { icon: label }).addTo(mapInstance);
+    L.marker(!isPickedup ? pickup : dropoff, { icon: label }).addTo(
+      mapInstance
+    );
   });
 };
-

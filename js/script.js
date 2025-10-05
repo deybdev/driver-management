@@ -11,30 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const chatArea = document.querySelector(".chat-area");
   const messageForm = document.getElementById("messageForm");
   const chatMessages = document.querySelector(".chat-messages");
-  const detailsButtons = document.querySelectorAll("#details-btn");
-  const acceptBtn = document.querySelectorAll(".accept-btn");
+  const detailsButtons = document.querySelectorAll("[id='details-btn']");
+  const acceptButtons = document.querySelectorAll(".accept-btn");
   const modal = document.getElementById("detailsModal");
-  const toggleBtn = document.getElementById("togglePickup");
-
-  // TOGGLE ANY MODAL BY ID
-  const toggleModal = (id, show) => {
-    const modal = document.getElementById(id);
-    if (!modal) return;
-
-    if (show) {
-      modal.style.display = "flex"; // Ensure modal is visible when showing
-      modal.classList.add("show");
-      document.body.classList.add("modal-open");
-    } else {
-      modal.classList.remove("show");
-      modal.style.display = ""; // Reset display property
-      document.body.classList.remove("modal-open");
-    }
-  };
-
-  toggleBtn.addEventListener("click", () => {
-    toggleModal("arrivedPickupModal", true);
-  });
 
   // MESSAGE SENDING
   if (messageForm) {
@@ -86,6 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // RESPONSIVE MESSAGE AREA
   if (messageItems && backButton && messagesSidebar && chatArea) {
+
     function showChatArea() {
       messagesSidebar.classList.add("hide");
       chatArea.classList.add("show");
@@ -100,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showMessagesList();
     }
 
-    messageItems.forEach((item) => {
+    messageItems.forEach((item, index) => {
       item.addEventListener("click", () => {
         if (window.innerWidth <= 768) {
           showChatArea();
@@ -144,7 +124,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // MODAL FUNCTIONALITY FOR DETAILS BUTTON
   if (detailsButtons && modal) {
     detailsButtons.forEach((button) => {
-      button.addEventListener("click", function () {
+      button.addEventListener("click", function (e) {
+        if (e.target.classList.contains("accept-btn")) {
+          return;
+        }
         modal.style.display = "flex";
         setTimeout(() => {
           initMap("map");
@@ -196,15 +179,15 @@ const confirmDropoffBtn = document.getElementById("confirmDropoffBtn");
 const confirmationText = document.getElementById("confirmationText");
 const headerText = document.getElementById("headerText");
 const cancelArrivalBtn = document.getElementById("cancelArrivalBtn");
+const toggleBtn = document.getElementById("togglePickup");
 
 // FUNCTIONS
 function openInGoogleMaps(button) {
   if (!button) return;
-
-  // Get the location name from the closest parent element
-  const locationNameElem = button.closest(".route-item")?.querySelector(".location-name");
+  const locationNameElem = button
+    .closest(".route-item")
+    ?.querySelector(".location-name");
   if (!locationNameElem) return;
-
   const locationName = locationNameElem.innerText.trim();
   if (!locationName) return;
 
@@ -214,7 +197,6 @@ function openInGoogleMaps(button) {
   // Open in a new tab
   window.open(url, "_blank");
 }
-
 
 // MODAL FUNCTIONS
 function closeModal(modalId) {
@@ -231,6 +213,12 @@ function openModal(modalId) {
   modal.style.display = "flex";
   modal.classList.add("show");
   document.body.classList.add("modal-open");
+}
+
+if (toggleBtn) {
+  toggleBtn.addEventListener("click", () => {
+    openModal("arrivedPickupModal");
+  });
 }
 
 function confirmArrival() {
@@ -269,8 +257,27 @@ function confirmDropoffArrival() {
   }
 }
 
+function openBookingAcceptedModal() {
+  toggleModal("bookingAccepted", true);
+}
+
+function confirmBookingAndShowDetails() {
+  closeModal("bookingAccepted");
+  const detailsmodal = document.getElementById("detailsModal");
+  if (!detailsmodal) return;
+
+  detailsmodal.style.display = "flex";
+  detailsmodal.classList.add("show");
+  document.body.classList.add("modal-open");
+
+  setTimeout(() => initMap("map"), 100);
+}
+
 // Make functions globally available
 window.closeModal = closeModal;
+window.openModal = openModal;
 window.confirmArrival = confirmArrival;
 window.confirmDropoffArrival = confirmDropoffArrival;
 window.openInGoogleMaps = openInGoogleMaps;
+window.openBookingAcceptedModal = openBookingAcceptedModal;
+window.confirmBookingAndShowDetails = confirmBookingAndShowDetails;
