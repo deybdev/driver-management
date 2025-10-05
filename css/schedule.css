@@ -209,7 +209,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: .9rem;
+  font-size: 0.9rem;
   color: var(--text-color);
 }
 
@@ -822,7 +822,8 @@
     padding: 8px;
     margin-bottom: 10px;
     gap: 6px;
-    width: 310px;
+    max-width: 280px;
+    min-width: 290px;
   }
 
   .note-text {
