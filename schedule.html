@@ -102,7 +102,7 @@
 
         <div class="bookings-grid">
           <!-- Booking Card 1 -->
-          <div class="booking-card">
+          <div class="booking-card" id="details-btn">
             <div class="booking-header">
               <div class="distance-info">
                 <span class="iconify" data-icon="material-symbols:route"></span>
@@ -148,7 +148,6 @@
             </div>
             <div class="booking-action">
               <button class="accept-btn">Accept</button>
-              <button class="details-btn">Details</button>
             </div>
           </div>
 
@@ -197,12 +196,11 @@
             </div>
             <div class="booking-action">
               <button class="accept-btn">Accept</button>
-              <button class="details-btn">Details</button>
             </div>
           </div>
 
           <!-- Booking Card 3 -->
-          <div class="booking-card">
+          <div class="booking-card" id="details-btn"> 
             <div class="booking-header">
               <div class="distance-info">
                 <span class="iconify" data-icon="material-symbols:route"></span>
@@ -247,11 +245,10 @@
             </div>
             <div class="booking-action">
               <button class="accept-btn">Accept</button>
-              <button class="details-btn">Details</button>
             </div>
           </div>
           <!-- Booking Card 4 -->
-          <div class="booking-card">
+          <div class="booking-card" id="details-btn">
             <div class="booking-header">
               <div class="distance-info">
                 <span class="iconify" data-icon="material-symbols:route"></span>
@@ -298,11 +295,10 @@
             </div>
             <div class="booking-action">
               <button class="accept-btn">Accept</button>
-              <button class="details-btn">Details</button>
             </div>
           </div>
           <!-- Booking Card 5 -->
-          <div class="booking-card">
+          <div class="booking-card" id="details-btn">
             <div class="booking-header">
               <div class="distance-info">
                 <span class="iconify" data-icon="material-symbols:route"></span>
@@ -349,11 +345,10 @@
             </div>
             <div class="booking-action">
               <button class="accept-btn">Accept</button>
-              <button class="details-btn">Details</button>
             </div>
           </div>
           <!-- Booking Card 6 -->
-          <div class="booking-card">
+          <div class="booking-card" id="details-btn">
             <div class="booking-header">
               <div class="distance-info">
                 <span class="iconify" data-icon="material-symbols:route"></span>
@@ -398,7 +393,6 @@
             </div>
             <div class="booking-action">
               <button class="accept-btn">Accept</button>
-              <button class="details-btn">Details</button>
             </div>
           </div>
         </div>
@@ -413,7 +407,7 @@
 
         <div class="bookings-grid">
           <!-- Ongoing Booking Card 1 -->
-          <div class="booking-card ongoing">
+          <div class="booking-card ongoing" id="details-btn">
             <div class="booking-header">
               <div class="status-info">
                 <span
@@ -422,7 +416,6 @@
                 ></span>
                 <span class="status-text">In Progress</span>
               </div>
-              <p class="time">Started 15 mins ago</p>
             </div>
 
             <div class="client-info">
@@ -450,16 +443,20 @@
               </div>
             </div>
 
+            <div class="booking-note">
+              <p class="note-text">
+                I’m waiting at the guardhouse near the main
+                gateasknboashsanp[apgponsa amsfpo].
+              </p>
+            </div>
+
             <div class="booking-fare">
               <span>₱85.00</span>
-            </div>
-            <div class="booking-action">
-              <button class="complete-btn">Complete</button>
             </div>
           </div>
 
           <!-- Ongoing Booking Card 2 -->
-          <div class="booking-card ongoing">
+          <div class="booking-card ongoing" id="details-btn">
             <div class="booking-header">
               <div class="status-info">
                 <span
@@ -468,7 +465,6 @@
                 ></span>
                 <span class="status-text">Picking Up</span>
               </div>
-              <p class="time">ETA: 5 mins</p>
             </div>
 
             <div class="client-info">
@@ -496,17 +492,19 @@
               </div>
             </div>
 
+            <div class="booking-note">
+              <p class="note-text">
+                No note provided
+              </p>
+            </div>
+
             <div class="booking-fare">
               <span>₱120.00</span>
-            </div>
-            <div class="booking-action">
-              <button class="arrived-btn">Mark Arrived</button>
-              <button class="details-btn">Details</button>
             </div>
           </div>
 
           <!-- Ongoing Booking Card 3 -->
-          <div class="booking-card ongoing">
+          <div class="booking-card ongoing" id="details-btn">
             <div class="booking-header">
               <div class="status-info">
                 <span
@@ -515,7 +513,6 @@
                 ></span>
                 <span class="status-text">En Route</span>
               </div>
-              <p class="time">15 mins remaining</p>
             </div>
 
             <div class="client-info">
@@ -545,11 +542,14 @@
               </div>
             </div>
 
+            <div class="booking-note">
+              <p class="note-text">
+                No note provided
+              </p>
+            </div>
+
             <div class="booking-fare">
               <span>₱95.50</span>
-            </div>
-            <div class="booking-action">
-              <button class="complete-btn">Complete</button>
             </div>
           </div>
         </div>
@@ -578,9 +578,9 @@
 
         <div class="bookings-grid">
           <!-- Completed Booking Card 1 -->
-          <div class="booking-card history completed">
+          <div class="booking-card history">
             <div class="booking-header">
-              <div class="status-info">
+              <div class="status-info completed">
                 <span
                   class="iconify"
                   data-icon="material-symbols:check-circle"
@@ -621,9 +621,9 @@
           </div>
 
           <!-- Completed Booking Card 2 -->
-          <div class="booking-card history completed">
+          <div class="booking-card history">
             <div class="booking-header">
-              <div class="status-info">
+              <div class="status-info completed">
                 <span
                   class="iconify"
                   data-icon="material-symbols:check-circle"
@@ -664,9 +664,9 @@
           </div>
 
           <!-- Cancelled Booking Card -->
-          <div class="booking-card history cancelled">
+          <div class="booking-card history">
             <div class="booking-header">
-              <div class="status-info">
+              <div class="status-info cancelled">
                 <span
                   class="iconify"
                   data-icon="material-symbols:cancel"
@@ -707,9 +707,9 @@
           </div>
 
           <!-- Completed Booking Card 3 -->
-          <div class="booking-card history completed">
+          <div class="booking-card history">
             <div class="booking-header">
-              <div class="status-info">
+              <div class="status-info completed">
                 <span
                   class="iconify"
                   data-icon="material-symbols:check-circle"
@@ -763,7 +763,7 @@
             <button
               id="close-modal"
               class="close-modal"
-              data-close="detailsModal"
+              onclick="closeModal('detailsModal')"
             >
               <span class="iconify" data-icon="mdi:close"></span>
             </button>
@@ -885,32 +885,84 @@
                 <!-- ACTION BUTTONS -->
                 <div class="modal-actions">
                   <!-- Arrived at pickup(Arrived at pickup),Arrived at Destination(Arrived at dropoff) -->
-                  <button class="btn-completed">Arrived at Pickup</button>
+                  <button id="togglePickup" class="btn-completed">
+                    Arrived at Pickup
+                  </button>
 
                   <!-- Hide Cancel Booking after pickup -->
-                  <button class="btn-cancel">Cancel Booking</button>
+                  <button class="btn-cancel" id="cancelRide">
+                    Cancel Booking
+                  </button>
                 </div>
               </div>
               <!-- MAP -->
               <div class="map-section">
                 <div id="map">
-                  <p id="starting-location" style="display: none">
-                    Makati City  
+                  <p id="pickup-location" style="display: none">
+                    Marilao Bulacan
                   </p>
-                  <p id="destination-location" style="display: none">
-                    San Bartolome QC
-                  </p>
+                  <p id="dropoff-location" style="display: none">Makati City</p>
+                  <!-- <p id="current-location" style="display: none;"></p> -->
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- MODAL FOR GETTING BOOKINGS-->
+          <!-- MODAL CONFIRMATION-->
+          <!-- Arrived at Pickup Modal -->
+          <div id="arrivedPickupModal" class="modal">
+            <div class="modal-content modal-sm">
+              <!-- Header -->
+              <div class="modal-header">
+                <h3 id="headerText">Confirm Arrival</h3>
+                <button
+                  class="close-modal"
+                  onclick="closeModal('arrivedPickupModal')"
+                >
+                  &times;
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <p id="confirmationText" class="confirmation-text">
+                  Are you sure you’ve arrived at the passenger’s pickup
+                  location?
+                </p>
+              </div>
+
+              <!-- Footer -->
+              <div class="modal-footer">
+                <button
+                  class="modal-btn secondary"
+                  onclick="closeModal('arrivedPickupModal')"
+                  id="cancelArrivalBtn"
+                >
+                  Cancel
+                </button>
+                <button
+                  class="modal-btn"
+                  id="confirmArrivalBtn"
+                  onclick="confirmArrival()"
+                >
+                  Yes, Arrived
+                </button>
+
+                <button
+                  class="modal-btn"
+                  id="confirmDropoffBtn"
+                  style="display: none"
+                  onclick="confirmDropoffArrival()"
+                >
+                  Yes, Arrived
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <script src="js/script.js"></script>
-    <script src="/js/map.js"></script>
+    <script type="module" src="js/script.js"></script>
+    <script type="module" src="/js/map.js"></script>
   </body>
 </html>

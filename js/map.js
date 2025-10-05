@@ -1,3 +1,12 @@
+let mapInstance, routing;
+export let isPickedup = false;
+
+export function setPickedup(value) {
+  isPickedup = value;
+}
+
+let pickup, dropoff, currentLocation, pickupName, dropoffName;
+
 async function geocode(place) {
   const res = await fetch(
     `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
@@ -10,87 +19,89 @@ async function geocode(place) {
 }
 
 function getCurrentLocation() {
-  if (!navigator.geolocation) {
-    alert("Geolocation is not supported by this browser.");
-    return;
-  }
-
-  navigator.geolocation.getCurrentPosition(
-    (pos) => {
-      const { latitude, longitude } = pos.coords;
-      alert(`Your Location:\nLatitude: ${latitude}\nLongitude: ${longitude}`);
-      console.log("My Location:", latitude, longitude);
-    },
-    (err) => {
-      alert("Error getting location: " + err.message);
-    },
-    { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
-  );
+  return new Promise((resolve, reject) => {
+    if (!navigator.geolocation) return reject("Geolocation not supported");
+    navigator.geolocation.getCurrentPosition(
+      (pos) => resolve([pos.coords.latitude, pos.coords.longitude]),
+      (err) => reject("Error: " + err.message),
+      { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+    );
+  });
 }
 
-let mapInstance = null;
+export async function initMap(containerId) {
+  if (mapInstance) mapInstance.remove();
 
-async function initMap(containerId) {
-  // Clear existing map if it exists
-  if (mapInstance) {
-    mapInstance.remove();
-    mapInstance = null;
-  }
+  pickupName = document.getElementById("pickup-location").textContent.trim();
+  dropoffName = document.getElementById("dropoff-location").textContent.trim();
 
-  // Wait a bit to ensure container is visible and has dimensions
-  await new Promise((resolve) => setTimeout(resolve, 100));
+  [pickup, dropoff, currentLocation] = await Promise.all([
+    geocode(pickupName),
+    geocode(dropoffName),
+    getCurrentLocation(),
+  ]);
 
-  const pickupName = document
-    .getElementById("starting-location")
-    .textContent.trim();
-  const dropoffName = document
-    .getElementById("destination-location")
-    .textContent.trim();
-
-  const pickup = await geocode(pickupName);
-  const dropoff = await geocode(dropoffName);
-
-  // Initialize map with proper options
-  mapInstance = L.map(containerId, {
-    zoomControl: true,
-    attributionControl: false,
-    maxZoom: 18,
-    minZoom: 3,
-  });
+  mapInstance = L.map(containerId, { maxZoom: 18, minZoom: 3 }).setView(
+    currentLocation,
+    14
+  );
 
   L.tileLayer("https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}", {
     subdomains: ["mt0", "mt1", "mt2", "mt3"],
     maxZoom: 20,
   }).addTo(mapInstance);
 
-  // Invalidate size to ensure proper rendering
-  setTimeout(() => {
-    mapInstance.invalidateSize();
-    mapInstance.fitBounds(L.latLngBounds([pickup, dropoff]), {
-      padding: [20, 20],
-      maxZoom: 16,
-    });
-  }, 200);
+  renderMap();
+}
 
+export const renderMap = function renderRoute() {
+  if (routing) mapInstance.removeControl(routing);
+
+  const bounds = L.latLngBounds(
+    !isPickedup ? [currentLocation, pickup] : [currentLocation, dropoff]
+  );
+  mapInstance.fitBounds(bounds, { padding: [20, 20], maxZoom: 16 });
+
+  // Define icons
   const icon = (color) =>
-    new L.Icon({
+    L.icon({
       iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-${color}.png`,
       shadowUrl: "https://unpkg.com/leaflet/dist/images/marker-shadow.png",
       iconSize: [30, 45],
       iconAnchor: [15, 45],
     });
 
-  L.marker(pickup, { icon: icon("blue") })
-    .addTo(mapInstance)
-    .bindPopup("Pickup: " + pickupName);
-  L.marker(dropoff, { icon: icon("red") }).addTo(mapInstance);
+  const currentIcon = L.icon({
+    iconUrl: "../assets/car-icon.png",
+    iconSize: [70, 70],
+    iconAnchor: [30, 30],
+  });
 
-  const routing = L.Routing.control({
-    waypoints: [L.latLng(pickup), L.latLng(dropoff)],
-    lineOptions: { styles: [{ color: "#4285F4", weight: 5 }] },
+  // Remove existing markers
+  mapInstance.eachLayer((layer) => {
+    if (
+      layer instanceof L.Marker &&
+      !layer._icon.classList.contains("leaflet-control-zoom")
+    ) {
+      mapInstance.removeLayer(layer);
+    }
+  });
+
+  // Add markers
+  L.marker(currentLocation, { icon: currentIcon }).addTo(mapInstance)
+    .bindPopup("Current Location");
+
+  L.marker(!isPickedup ? pickup : dropoff, { icon: icon("red") }).addTo(mapInstance);
+
+  // Routing
+  routing = L.Routing.control({
+    waypoints: !isPickedup
+      ? [L.latLng(currentLocation), L.latLng(pickup)]
+      : [L.latLng(currentLocation), L.latLng(dropoff)],
+    lineOptions: { styles: [{ color: "rgb(63, 86, 44)", weight: 5 }] },
     addWaypoints: false,
     draggableWaypoints: false,
-    fitSelectedRoutes: false, // Changed to false to prevent auto-zoom conflicts
+    fitSelectedRoutes: false,
     createMarker: () => null,
     show: false,
   }).addTo(mapInstance);
@@ -100,72 +111,26 @@ async function initMap(containerId) {
     `<style>.leaflet-routing-container{display:none!important;}</style>`
   );
 
-  mapInstance.zoomControl.setPosition("topleft");
-
   routing.on("routesfound", (e) => {
-    const km = (e.routes[0].summary.totalDistance / 1000).toFixed(0);
-
-    // total time is in seconds → convert to minutes
-    const totalSeconds = e.routes[0].summary.totalTime;
-    const minutes = Math.round(totalSeconds / 60);
-    const hours = Math.floor(minutes / 60);
-    const mins = minutes % 60;
-
-    // format ETA
-    let eta;
-    if (hours > 0) {
-      eta = `${hours}h ${mins}m`;
-    } else {
-      eta = `${mins} mins`;
-    }
+    const { totalDistance, totalTime } = e.routes[0].summary;
+    const km = (totalDistance / 1000).toFixed(0);
+    const mins = Math.round(totalTime / 60);
+    const hours = Math.floor(mins / 60);
+    const eta = hours ? `${hours}h ${mins % 60}m` : `${mins} mins`;
 
     const label = L.divIcon({
       className: "dropoff-label",
       html: `
-      <div
-        style="
-          display: inline-block;
-          background: #ffffff;
-          padding: 10px 16px;
-          border-radius: 10px;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-          font-family: Arial, sans-serif;
-          min-width: 140px;
-        "
-      >
-        <div
-          style="
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 4px;
-          "
-        >
-          <div
-            style="
-              font-size: 1.2rem;
-              font-weight: 700;
-              color: #222;
-              line-height: 1;
-            "
-          >
-            ${km} km
+        <div style="background:#fff;padding:10px 16px;border-radius:10px;
+          box-shadow:0 4px 12px rgba(0,0,0,.15);font-family:Arial;min-width:140px">
+          <div style="font-size:1.2rem;font-weight:700;color:#222">${km} km</div>
+          <div style="font-size:.95rem;color:#555">
+            ETA: <span style="font-weight:600;color:#000">${eta}</span>
           </div>
-          <div style="font-size: 0.95rem; color: #555">
-            ETA: <span style="font-weight: 600; color: #000">${eta}</span>
-          </div>
-        </div>
-      </div>`,
+        </div>`,
     });
 
-    L.marker(dropoff, { icon: label }).addTo(mapInstance);
+    L.marker(!isPickedup ? pickup : dropoff, { icon: label }).addTo(mapInstance);
   });
-}
-
-// Function to initialize map when modal opens
-window.initModalMap = function () {
-  initMap("map");
 };
 
-// Don't auto-initialize the map on page load
-// initMap("map"); // Removed this line

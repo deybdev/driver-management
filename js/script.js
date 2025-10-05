@@ -1,3 +1,5 @@
+import { isPickedup, initMap, renderMap, setPickedup } from "./map.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   // Get all DOM elements
   const menuItems = document.querySelectorAll(".sidebar ul li");
@@ -9,11 +11,30 @@ document.addEventListener("DOMContentLoaded", () => {
   const chatArea = document.querySelector(".chat-area");
   const messageForm = document.getElementById("messageForm");
   const chatMessages = document.querySelector(".chat-messages");
-  const pillToggleGroup = document.querySelector(".pill-toggle-group");
-  const schedules = document.querySelectorAll(".booking-schedule");
-  const detailsButtons = document.querySelectorAll(".details-btn");
+  const detailsButtons = document.querySelectorAll("#details-btn");
+  const acceptBtn = document.querySelectorAll(".accept-btn");
   const modal = document.getElementById("detailsModal");
-  const closeButton = document.querySelector(".close-modal");
+  const toggleBtn = document.getElementById("togglePickup");
+
+  // TOGGLE ANY MODAL BY ID
+  const toggleModal = (id, show) => {
+    const modal = document.getElementById(id);
+    if (!modal) return;
+
+    if (show) {
+      modal.style.display = "flex"; // Ensure modal is visible when showing
+      modal.classList.add("show");
+      document.body.classList.add("modal-open");
+    } else {
+      modal.classList.remove("show");
+      modal.style.display = ""; // Reset display property
+      document.body.classList.remove("modal-open");
+    }
+  };
+
+  toggleBtn.addEventListener("click", () => {
+    toggleModal("arrivedPickupModal", true);
+  });
 
   // MESSAGE SENDING
   if (messageForm) {
@@ -125,38 +146,12 @@ document.addEventListener("DOMContentLoaded", () => {
     detailsButtons.forEach((button) => {
       button.addEventListener("click", function () {
         modal.style.display = "flex";
-        // Initialize map when modal opens
-        if (typeof window.initModalMap === 'function') {
-          setTimeout(() => {
-            window.initModalMap();
-          }, 100);
-        }
+        setTimeout(() => {
+          initMap("map");
+        }, 100);
       });
     });
   }
-
-  // Close modal when X button is clicked
-  if (closeButton && modal) {
-    closeButton.addEventListener("click", function () {
-      modal.style.display = "none";
-    });
-  }
-
-  // Close modal when clicking outside the modal content
-  if (modal) {
-    modal.addEventListener("click", function (e) {
-      if (e.target === modal) {
-        modal.style.display = "none";
-      }
-    });
-  }
-
-  // Close modal with Escape key
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && modal && modal.style.display === "flex") {
-      modal.style.display = "none";
-    }
-  });
 
   // SCHEDULE TAB FUNCTIONALITY
   const scheduleTabGroup = document.querySelector(".pill-toggle-group");
@@ -192,15 +187,90 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Initialize with bookings tab active
     showScheduleSection("bookings");
   }
 });
 
+const confirmArrivalBtn = document.getElementById("confirmArrivalBtn");
+const confirmDropoffBtn = document.getElementById("confirmDropoffBtn");
+const confirmationText = document.getElementById("confirmationText");
+const headerText = document.getElementById("headerText");
+const cancelArrivalBtn = document.getElementById("cancelArrivalBtn");
+
 // FUNCTIONS
 function openInGoogleMaps(button) {
-  const locationName = button.closest(".route-item").querySelector(".location-name").innerText;
-  const encoded = encodeURIComponent(locationName);
-  window.open(`https://www.google.com/maps/search/?api=1&query=${encoded}`, "_blank");
+  if (!button) return;
+
+  // Get the location name from the closest parent element
+  const locationNameElem = button.closest(".route-item")?.querySelector(".location-name");
+  if (!locationNameElem) return;
+
+  const locationName = locationNameElem.innerText.trim();
+  if (!locationName) return;
+
+  const encodedLocation = encodeURIComponent(locationName);
+  const url = `https://www.google.com/maps/search/?api=1&query=${encodedLocation}`;
+
+  // Open in a new tab
+  window.open(url, "_blank");
 }
 
+
+// MODAL FUNCTIONS
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (!modal) return;
+  modal.classList.remove("show");
+  modal.style.display = "";
+  document.body.classList.remove("modal-open");
+}
+
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (!modal) return;
+  modal.style.display = "flex";
+  modal.classList.add("show");
+  document.body.classList.add("modal-open");
+}
+
+function confirmArrival() {
+  closeModal("arrivedPickupModal");
+  setPickedup(true);
+  renderMap("map");
+  const toggleBtn = document.getElementById("togglePickup");
+  if (toggleBtn) toggleBtn.textContent = "Arrived at Destination";
+  if (confirmArrivalBtn) confirmArrivalBtn.style.display = "none";
+  if (confirmDropoffBtn) confirmDropoffBtn.style.display = "inline-block";
+  if (confirmationText) {
+    confirmationText.textContent =
+      "Are you sure you’ve arrived at the passenger’s drop-off location?";
+  }
+}
+
+function confirmDropoffArrival() {
+  closeModal("arrivedDropoffModal");
+  setPickedup(false);
+  renderMap("map");
+  const toggleBtn = document.getElementById("togglePickup");
+  if (toggleBtn) {
+    confirmDropoffBtn.disabled = true;
+
+    toggleBtn.textContent = "Completed";
+  }
+  if (confirmDropoffBtn) confirmDropoffBtn.style.display = "none";
+  if (confirmationText) {
+    confirmationText.textContent = "Your trip has been successfully completed!";
+  }
+  if (headerText) {
+    headerText.textContent = "Trip Completed";
+  }
+  if (cancelArrivalBtn) {
+    cancelArrivalBtn.textContent = "Okay";
+  }
+}
+
+// Make functions globally available
+window.closeModal = closeModal;
+window.confirmArrival = confirmArrival;
+window.confirmDropoffArrival = confirmDropoffArrival;
+window.openInGoogleMaps = openInGoogleMaps;

@@ -156,7 +156,14 @@
   padding: 20px;
   border: 1px solid #e5e7eb;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
+
+.booking-card:hover {
+  box-shadow: var(--shadow);
+  border-color: var(--primary-color);
+}
+
 
 /* Booking Header */
 .booking-header {
@@ -184,6 +191,38 @@
 
 .distance-info .iconify {
   font-size: 1rem;
+}
+
+/* Status Info Styling */
+.status-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.status-info .iconify {
+  font-size: 1.1rem;
+  animation: pulse 2s infinite;
+}
+
+/* Different status colors */
+.status-info .status-text {
+  position: relative;
+  z-index: 2;
+}
+
+.status-info.cancelled {
+  color: #e53e3e;
+}
+.status-info.completed {
+  color: var(--primary-color);
 }
 
 .booking-fare {
@@ -785,6 +824,11 @@
   .booking-action button {
     padding: 10px 16px;
     font-size: 0.8rem;
+  }
+
+  .confirmation-text {
+    font-size: 1rem;
+    padding: 20px;
   }
 
   /* Filter Section Mobile */

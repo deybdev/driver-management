@@ -478,6 +478,231 @@
   text-decoration: underline;
 }
 
+.topup-form,
+.cashout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#topup-modal .modal-body {
+  padding: 16px;
+}
+
+.topup-form .form-group {
+  margin-bottom: 10px;
+}
+
+.topup-form .form-group:last-child {
+  margin-bottom: 0;
+}
+
+.quick-amount-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.quick-amount-btn {
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 8px 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.quick-amount-btn:hover {
+  background: #f0f0f0;
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.quick-amount-btn.active {
+  background: rgba(var(--primary-color-rgb), 0.1);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.topup-form .input-note,
+.cashout-form .input-note {
+  font-size: 0.75rem;
+  color: #999;
+  margin-top: -2px;
+  line-height: 1.2;
+}
+
+.payment-methods-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.topup-form .amount-input,
+.cashout-form .amount-input {
+  height: 40px;
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.topup-form .peso-icon,
+.cashout-form .peso-icon {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.topup-form .amount-field,
+.cashout-form .amount-field {
+  height: 40px;
+  font-size: 0.9rem;
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+.payment-method-option {
+  position: relative;
+}
+
+.payment-method-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.payment-method-option label {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background: #f8f9fa;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.payment-method-option input[type="radio"]:checked + label {
+  border-color: var(--primary-color);
+  background: rgba(var(--primary-color-rgb), 0.05);
+}
+
+.payment-method-option:hover label {
+  border-color: var(--primary-color);
+  background: rgba(var(--primary-color-rgb), 0.02);
+}
+
+.topup-form .amount-input:focus-within,
+.cashout-form .amount-input:focus-within {
+  border-color: var(--primary-color);
+}
+
+.payment-method-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-right: 12px;
+  border-radius: 6px;
+  font-size: 1.4rem;
+}
+
+.payment-method-icon.gcash {
+  background: #e3f2fd;
+  color: #007cff;
+}
+
+.payment-method-icon.maya {
+  background: #e8f5e8;
+  color: #4caf50;
+}
+
+.payment-method-details {
+  flex: 1;
+}
+
+.payment-method-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 3px;
+}
+
+.payment-method-number {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0;
+}
+
+.radio-checkmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+}
+
+.payment-method-option input[type="radio"]:checked + label .radio-checkmark {
+  border-color: var(--primary-color);
+}
+
+.radio-checkmark:after {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  display: none;
+  transition: all 0.3s ease;
+}
+
+.payment-method-option
+  input[type="radio"]:checked
+  + label
+  .radio-checkmark:after {
+  display: block;
+}
+
+@media (max-width: 576px) {
+  .quick-amount-buttons {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .topup-form,
+  .cashout-form {
+    gap: 12px;
+  }
+
+  .payment-method-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 1.4rem;
+    margin-right: 8px;
+  }
+
+  .payment-method-name {
+    font-size: 0.9rem;
+  }
+
+  .payment-method-number {
+    font-size: 0.75rem;
+  }
+}
+
 @media (max-width: 768px) {
   .main-content {
     margin-bottom: 0;
