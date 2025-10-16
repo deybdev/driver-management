@@ -41,6 +41,10 @@
           <span class="iconify" data-icon="solar:wallet-bold"></span
           ><a href="wallet.html"> My Wallet</a>
         </li>
+        <li onclick="this.querySelector('a').click()">
+          <span class="iconify" data-icon="fa-solid:history"></span
+          ><a href="history.html"> Compliance</a>
+        </li>
         <li class="active" onclick="this.querySelector('a').click()">
           <span class="iconify" data-icon="iconamoon:profile-fill"></span
           ><a href="profile.html"> Profile</a>
@@ -149,7 +153,7 @@
               <label>Phone Number</label>
               <input type="text" value="+63 912 345 6789" readonly />
             </div>
-            <button class="change-password">Change Password</button>
+            <button class="manage-account">Manage Account</button>
           </div>
 
           <!-- Role & Permissions Tab -->
@@ -236,6 +240,69 @@
       </div>
     </div>
 
+    <!-- Manage Account Modal -->
+    <div id="manage-account-modal" class="manage-modal">
+      <div class="manage-modal-content">
+        <div class="manage-modal-header">
+          <h2>Manage Account</h2>
+          <button class="close-manage-modal">
+            <span class="iconify" data-icon="mdi:close"></span>
+          </button>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="manage-tabs">
+          <button class="manage-tab-btn active" data-tab="profile-info-tab">
+            Profile Information
+          </button>
+          <button class="manage-tab-btn" data-tab="change-password-tab">
+            Change Password
+          </button>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="manage-tab-content">
+          <!-- Profile Information Tab -->
+          <div id="profile-info-tab" class="manage-tab-pane active">
+            <div class="form-group">
+              <label>Username</label>
+              <input type="text" id="edit-username" value="Lebronie" class="form-input">
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" id="edit-email" value="Lebronjames@gmail.com" class="form-input">
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" id="edit-phone" value="+63 912 345 6789" class="form-input">
+            </div>
+          </div>
+
+          <!-- Change Password Tab -->
+          <div id="change-password-tab" class="manage-tab-pane">
+            <div class="form-group">
+              <label>Current Password</label>
+              <input type="password" id="current-password" placeholder="Enter current password" class="form-input">
+            </div>
+            <div class="form-group">
+              <label>New Password</label>
+              <input type="password" id="new-password" placeholder="Enter new password" class="form-input">
+            </div>
+            <div class="form-group">
+              <label>Confirm New Password</label>
+              <input type="password" id="confirm-password" placeholder="Confirm new password" class="form-input">
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Actions -->
+        <div class="manage-modal-actions">
+          <button class="btn-cancel">Cancel</button>
+          <button class="btn-save-changes">Save Changes</button>
+        </div>
+      </div>
+    </div>
+
     <script>
       // Tab functionality
       document.addEventListener("DOMContentLoaded", function () {
@@ -266,6 +333,73 @@
           window.location.href = "index.html";
         }
       }
+
+      // Manage Account Modal Functions
+      const manageAccountBtn = document.querySelector('.manage-account');
+      const manageAccountModal = document.getElementById('manage-account-modal');
+      const closeModalBtns = document.querySelectorAll('.close-manage-modal');
+      const tabBtns = document.querySelectorAll('.manage-tab-btn');
+      const tabPanes = document.querySelectorAll('.manage-tab-pane');
+      const cancelBtn = document.querySelector('.btn-cancel');
+      const saveBtn = document.querySelector('.btn-save-changes');
+
+      // Open modal
+      if (manageAccountBtn) {
+        manageAccountBtn.addEventListener('click', () => {
+          manageAccountModal.classList.add('show');
+          document.body.style.overflow = 'hidden';
+        });
+      }
+
+      // Close modal
+      closeModalBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          manageAccountModal.classList.remove('show');
+          document.body.style.overflow = 'auto';
+        });
+      });
+
+      // Close on background click
+      manageAccountModal?.addEventListener('click', (e) => {
+        if (e.target === manageAccountModal) {
+          manageAccountModal.classList.remove('show');
+          document.body.style.overflow = 'auto';
+        }
+      });
+
+      // Tab switching
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetTab = btn.dataset.tab;
+          
+          tabBtns.forEach(b => b.classList.remove('active'));
+          tabPanes.forEach(p => p.classList.remove('active'));
+          
+          btn.classList.add('active');
+          document.getElementById(targetTab).classList.add('active');
+        });
+      });
+
+      // Cancel button
+      cancelBtn?.addEventListener('click', () => {
+        manageAccountModal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+      });
+
+      // Save Changes button
+      saveBtn?.addEventListener('click', () => {
+        // Get form values
+        const username = document.getElementById('edit-username')?.value;
+        const email = document.getElementById('edit-email')?.value;
+        const phone = document.getElementById('edit-phone')?.value;
+        
+        // Here you would send the data to your backend
+        alert('Changes saved successfully!');
+        
+        // Close modal
+        manageAccountModal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+      });
     </script>
   </body>
 </html>

@@ -183,8 +183,8 @@
 }
 
 .account-tabs .tab.active {
-  color: #d69e2e;
-  border-bottom: 2px solid #d69e2e;
+  color: var(--secondary-color);
+  border-bottom: 2px solid var(--secondary-color);
 }
 
 .account-tabs .tab:hover {
@@ -223,7 +223,7 @@
 
 .tab-content input:focus {
   outline: none;
-  border-color: #d69e2e;
+  border-color: var(--secondary-color);
 }
 
 .tab-content hr {
@@ -232,7 +232,7 @@
   margin: 24px 0;
 }
 
-.change-password {
+.manage-account {
   background: #ffffff;
   color: #4a5568;
   border: 1px solid #e2e8f0;
@@ -245,9 +245,215 @@
   margin-top: 16px;
 }
 
+.manage-account:hover {
+  background: #f7fafc;
+  border-color: #cbd5e0;
+}
+
 .change-password:hover {
   background: #f7fafc;
   border-color: #cbd5e0;
+}
+
+/* Manage Account Modal */
+.manage-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.manage-modal.show {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+.manage-modal-content {
+  background: #fff;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: hidden;
+  animation: slideUp 0.3s ease;
+}
+
+.manage-modal-header {
+  background: var(--secondary-color);
+  padding: 20px;
+  border-radius: 16px 16px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.manage-modal-header h2 {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.close-manage-modal {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.close-manage-modal:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Modal Tabs */
+.manage-tabs {
+  display: flex;
+  border-bottom: 2px solid #e2e8f0;
+  padding: 0 24px;
+  background: #fff;
+}
+
+.manage-tab-btn {
+  background: transparent;
+  border: none;
+  padding: 16px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #64748b;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: all 0.3s ease;
+}
+
+.manage-tab-btn:hover {
+  color: var(--primary-color);
+}
+
+.manage-tab-btn.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+
+/* Tab Content */
+.manage-tab-content {
+  padding: 24px;
+}
+
+.manage-tab-pane {
+  display: none;
+}
+
+.manage-tab-pane.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #334155;
+  margin-bottom: 8px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #cbd5e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #1e293b;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.form-input::placeholder {
+  color: #94a3b8;
+}
+
+/* Modal Actions */
+.manage-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 20px 24px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.btn-cancel,
+.btn-save-changes {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-cancel {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.btn-cancel:hover {
+  background: #e2e8f0;
+}
+
+.btn-save-changes {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+.btn-save-changes:hover {
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @media (max-width: 768px) {
@@ -270,6 +476,19 @@
   
   .page-title {
     display: none;
+  }
+
+  .manage-modal-header{
+    padding: 20px;
+  }
+
+  .manage-modal h2{
+    font-size: 1rem;
+  }
+
+  .manage-tab-btn{
+    font-size: .75rem;
+    padding: 10px 20px;
   }
 }
 

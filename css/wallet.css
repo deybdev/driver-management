@@ -12,7 +12,7 @@
 }
 
 .wallet-balance-card {
-  background: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color) 0%, #c9a747 100%);
   border-radius: 16px;
   padding: 24px;
   display: flex;
@@ -21,18 +21,16 @@
   box-shadow: 0 8px 24px rgba(212, 175, 55, 0.25);
 }
 
-.balance-info {
-  color: white;
-}
-
 .balance-label {
-  font-size: 0.9rem;
+  font-size: 1rem;
   opacity: 0.9;
+  color: white;
   margin-bottom: 8px;
 }
 
 .balance-amount {
   font-size: 2.25rem;
+  color: white;
   font-weight: 700;
   margin: 0;
   letter-spacing: -0.5px;
@@ -267,13 +265,20 @@
   font-size: 0.9rem;
   font-weight: 500;
   color: #333;
-  margin: 0 0 2px 0;
 }
 
 .transaction-date {
   font-size: 0.75rem;
   color: #666;
-  margin: 0;
+}
+
+.transaction-reference::before{
+  content: 'Ref#: ';
+}
+
+.transaction-reference{
+  color: #999;
+  font-size: .70rem;
 }
 
 .transaction-amount {
@@ -778,4 +783,143 @@
     padding-bottom: 16px;
     border-bottom: 1px solid #f0f0f0;
   }
+}
+
+/* PAYMENT OPTIONS STYLES */
+.payment-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.payment-option:hover {
+  background-color: #f9f9f9;
+  border-color: var(--primary-color);
+  transform: translateX(4px);
+}
+
+.payment-option-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.payment-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.payment-info h4 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0 0 4px 0;
+}
+
+.payment-info p {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+/* PAYMENT METHOD FORM STYLES */
+.payment-info-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  background-color: rgba(3, 0, 176, .08);
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.payment-form label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+
+.payment-form .form-control {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.payment-form .form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.payment-form select.form-control {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+.note-box {
+  background-color: rgba(0,0,0, .05);
+  border-left: 4px solid var(--primary-color);
+  padding: 12px 16px;
+  font-size: 13px;
+  color: #666;
+}
+
+.note-box strong {
+  color: #333;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.modal-actions button {
+  flex: 1;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary {
+  background-color: #f5f5f5;
+  color: #666;
+}
+
+.btn-secondary:hover {
+  background-color: #e8e8e8;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #c9a747;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
 }

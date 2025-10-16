@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/history.css" />
+    <!-- ICONIFY CDN -->
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+    <title>History</title>
+</head>
+<body>
+        <!-- NAVBAR (Reusable when using backend via PHP include) -->
+    <nav id="sidebar" class="sidebar">
+      <!-- LOGO -->
+      <div>
+        <img src="assets/logo.png" alt="" />
+      </div>
+      <p>MENU</p>
+      <ul>
+        <li onclick="this.querySelector('a').click()">
+          <span
+            class="iconify"
+            data-icon="material-symbols:dashboard-rounded"
+          ></span
+          ><a href="dashboard.html"> Dashboard</a>
+        </li>
+
+        <li onclick="this.querySelector('a').click()">
+          <span class="iconify" data-icon="uis:schedule"></span>
+          <a href="schedule.html"> Schedule</a>
+        </li>
+
+        <li onclick="this.querySelector('a').click()">
+          <span class="iconify" data-icon="ic:round-message"></span
+          ><a href="message.html"> Messages</a>
+        </li>
+        <li onclick="this.querySelector('a').click()">
+          <span class="iconify" data-icon="solar:wallet-bold"></span
+          ><a href="wallet.html"> My Wallet</a>
+        </li>
+        <li class="active" onclick="this.querySelector('a').click()">
+          <span class="iconify" data-icon="fa-solid:history"></span
+          ><a href="history.html"> Compliance</a>
+        </li>
+        <li onclick="this.querySelector('a').click()">
+          <span class="iconify" data-icon="iconamoon:profile-fill"></span
+          ><a href="profile.html"> Profile</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="main-content">
+      <div class="schedule-header">
+        <div class="schedule-text-header">
+          <h2>Compliance History</h2>
+          <p>Track and manage your compliance records</p>
+        </div>
+      </div>
+
+      <!-- Passenger Feedback Section -->
+      <div class="feedback-section">
+        <!-- Tab Navigation -->
+        <div class="feedback-tabs">
+          <button class="feedback-tab active" data-tab="booking-records">Booking Records</button>
+          <button class="feedback-tab" data-tab="passenger-feedback">Passenger Feedback</button>
+          <button class="feedback-tab" data-tab="reports-complaints">Reports/Complaints</button>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="feedback-tab-content">
+          <!-- Booking Records Tab -->
+          <div class="tab-panel active" id="booking-records">
+            <!-- Stats Cards -->
+            <div class="booking-stats">
+              <div class="stat-card">
+                <div class="stat-label">Total Bookings</div>
+                <div class="stat-value">1,247</div>
+                <div class="stat-change positive">+ 12.5%</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Completed</div>
+                <div class="stat-value">1,180</div>
+                <div class="stat-change positive">+ 94.6%</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Cancelled</div>
+                <div class="stat-value">67</div>
+                <div class="stat-change negative">- 4.5%</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">This Month</div>
+                <div class="stat-value">156</div>
+                <div class="stat-change positive">+ 12.5%</div>
+              </div>
+            </div>
+
+            <!-- Booking Records Header -->
+            <div class="booking-records-header">
+              <h3>Recent Booking Records</h3>
+              <div class="booking-filters">
+                <input type="text" class="search-input" placeholder="Search Bookings...">
+                <select class="status-filter">
+                  <option value="all">All Bookings</option>
+                  <option value="completed">Completed</option>
+                  <option value="cancelled">Cancelled</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Booking Records Table -->
+            <div class="booking-table-wrapper">
+              <table class="booking-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>PASSENGER</th>
+                    <th>DATE</th>
+                    <th>FARE</th>
+                    <th>STATUS</th>
+                    <th>ACTION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Booking Row 1 -->
+                  <tr>
+                    <td>01</td>
+                    <td>Brave Buenofe</td>
+                    <td>Commonwealth to QCU(Batasan)</td>
+                    <td>2025-10-15</td>
+                    <td>₱250</td>
+                    <td><span class="status-badge completed">COMPLETED</span></td>
+                    <td><button class="action-btn">View</button></td>
+                  </tr>
+                  <!-- Booking Row 2 -->
+                  <tr>
+                    <td>01</td>
+                    <td>Brave Buenofe</td>
+                    <td>Commonwealth to QCU(Batasan)</td>
+                    <td>2025-10-15</td>
+                    <td>₱250</td>
+                    <td><span class="status-badge completed">COMPLETED</span></td>
+                    <td><button class="action-btn">View</button></td>
+                  </tr>
+                  <!-- Booking Row 3 -->
+                  <tr>
+                    <td>01</td>
+                    <td>Brave Buenofe</td>
+                    <td>Commonwealth to QCU(Batasan)</td>
+                    <td>2025-10-15</td>
+                    <td>₱250</td>
+                    <td><span class="status-badge completed">COMPLETED</span></td>
+                    <td><button class="action-btn">View</button></td>
+                  </tr>
+                  <!-- Booking Row 4 -->
+                  <tr>
+                    <td>01</td>
+                    <td>Brave Buenofe</td>
+                    <td>Commonwealth to QCU(Batasan)</td>
+                    <td>2025-10-15</td>
+                    <td>₱250</td>
+                    <td><span class="status-badge completed">COMPLETED</span></td>
+                    <td><button class="action-btn">View</button></td>
+                  </tr>
+                  <!-- Booking Row 5 -->
+                  <tr>
+                    <td>01</td>
+                    <td>Brave Buenofe</td>
+                    <td>Commonwealth to QCU(Batasan)</td>
+                    <td>2025-10-15</td>
+                    <td>₱250</td>
+                    <td><span class="status-badge completed">COMPLETED</span></td>
+                    <td><button class="action-btn">View</button></td>
+                  </tr>
+                  <!-- Booking Row 6 -->
+                  <tr>
+                    <td>01</td>
+                    <td>Brave Buenofe</td>
+                    <td>Commonwealth to QCU(Batasan)</td>
+                    <td>2025-10-15</td>
+                    <td>₱250</td>
+                    <td><span class="status-badge completed">COMPLETED</span></td>
+                    <td><button class="action-btn">View</button></td>
+                  </tr>
+                  <!-- Booking Row 7 -->
+                  <tr>
+                    <td>01</td>
+                    <td>Brave Buenofe</td>
+                    <td>Commonwealth to QCU(Batasan)</td>
+                    <td>2025-10-15</td>
+                    <td>₱250</td>
+                    <td><span class="status-badge completed">COMPLETED</span></td>
+                    <td><button class="action-btn">View</button></td>
+                  </tr>
+                  <!-- Booking Row 8 -->
+                  <tr>
+                    <td>01</td>
+                    <td>Brave Buenofe</td>
+                    <td>Commonwealth to QCU(Batasan)</td>
+                    <td>2025-10-15</td>
+                    <td>₱250</td>
+                    <td><span class="status-badge completed">COMPLETED</span></td>
+                    <td><button class="action-btn">View</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Passenger Feedback Tab -->
+          <div class="tab-panel" id="passenger-feedback">
+            <!-- Stats Cards -->
+            <div class="feedback-stats">
+              <div class="stat-card">
+                <div class="stat-label">Average Rating</div>
+                <div class="stat-value">4.7</div>
+                <div class="stat-change positive">+ 0.3%</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Total Reviews</div>
+                <div class="stat-value">892</div>
+                <div class="stat-change positive">+ 15.2%</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">5-Star Ratings</div>
+                <div class="stat-value">645</div>
+                <div class="stat-change positive">+ 72.3%</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">This Month</div>
+                <div class="stat-value">124</div>
+                <div class="stat-change positive">+ 8.7%</div>
+              </div>
+            </div>
+
+            <!-- Recent Feedback Header -->
+            <div class="feedback-header">
+              <h3>Recent Passenger Feedback</h3>
+              <select class="rating-filter">
+                <option value="all">All Ratings</option>
+                <option value="5">5 Stars</option>
+                <option value="4">4 Stars</option>
+                <option value="3">3 Stars</option>
+                <option value="2">2 Stars</option>
+                <option value="1">1 Star</option>
+              </select>
+            </div>
+
+            <!-- Feedback List -->
+            <div class="feedback-list">
+              <!-- Feedback Item 1 -->
+              <div class="feedback-item">
+                <div class="feedback-avatar">BR</div>
+                <div class="feedback-content">
+                  <div class="feedback-header-row">
+                    <div class="feedback-user-info">
+                      <h4>Brave Buenofe</h4>
+                      <div class="feedback-stars">
+                        <span class="iconify star-filled" data-icon="mdi:star"></span>
+                        <span class="iconify star-filled" data-icon="mdi:star"></span>
+                        <span class="iconify star-filled" data-icon="mdi:star"></span>
+                        <span class="iconify star-filled" data-icon="mdi:star"></span>
+                        <span class="iconify star-filled" data-icon="mdi:star"></span>
+                      </div>
+                    </div>
+                    <div class="feedback-meta">
+                      <div class="feedback-route">Route: Commonwealth to QCU(Batasan)</div>
+                      <div class="feedback-date">Oct 15, 2025</div>
+                    </div>
+                  </div>
+                  <p class="feedback-text">"Excellent service! The driver was very professional and the bus was clean and comfortable"</p>
+                </div>
+              </div>
+
+              <!-- Feedback Item 2 -->
+              <div class="feedback-item">
+                <div class="feedback-avatar">BR</div>
+                <div class="feedback-content">
+                  <div class="feedback-header-row">
+                    <div class="feedback-user-info">
+                      <h4>Brave Buenofe</h4>
+                      <div class="feedback-stars">
+                        <span class="iconify star-filled" data-icon="mdi:star"></span>
+                        <span class="iconify star-filled" data-icon="mdi:star"></span>
+                        <span class="iconify star-filled" data-icon="mdi:star"></span>
+                        <span class="iconify star-filled" data-icon="mdi:star"></span>
+                        <span class="iconify star-filled" data-icon="mdi:star"></span>
+                      </div>
+                    </div>
+                    <div class="feedback-meta">
+                      <div class="feedback-route">Route: Commonwealth to QCU(Batasan)</div>
+                      <div class="feedback-date">Oct 15, 2025</div>
+                    </div>
+                  </div>
+                  <p class="feedback-text">"Excellent service! The driver was very professional and the bus was clean and comfortable"</p>
+                </div>
+              </div>
+
+              <!-- Feedback Item 3 -->
+              <div class="feedback-item">
+                <div class="feedback-avatar">BR</div>
+                <div class="feedback-content">
+                  <div class="feedback-header-row">
+                    <div class="feedback-user-info">
+                      <h4>Brave Buenofe</h4>
+                      <div class="feedback-stars">
+                        <span class="iconify star-filled" data-icon="mdi:star"></span>
+                        <span class="iconify star-filled" data-icon="mdi:star"></span>
+                        <span class="iconify star-filled" data-icon="mdi:star"></span>
+                        <span class="iconify star-filled" data-icon="mdi:star"></span>
+                        <span class="iconify star-filled" data-icon="mdi:star"></span>
+                      </div>
+                    </div>
+                    <div class="feedback-meta">
+                      <div class="feedback-route">Route: Commonwealth to QCU(Batasan)</div>
+                      <div class="feedback-date">Oct 15, 2025</div>
+                    </div>
+                  </div>
+                  <p class="feedback-text">"Excellent service! The driver was very professional and the bus was clean and comfortable"</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reports/Complaints Tab -->
+          <div class="tab-panel" id="reports-complaints">
+            <!-- Stats Cards -->
+            <div class="complaints-stats">
+              <div class="stat-card">
+                <div class="stat-label">Total Complaints</div>
+                <div class="stat-value">47</div>
+                <div class="stat-change negative">- 18.5%</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Resolved</div>
+                <div class="stat-value">38</div>
+                <div class="stat-change positive">+ 80.9%</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Pending</div>
+                <div class="stat-value">9</div>
+                <div class="stat-change negative">- 19.1%</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Avg Resolution</div>
+                <div class="stat-value">2.3</div>
+                <div class="stat-sublabel">days</div>
+              </div>
+            </div>
+
+            <!-- Complaints Header -->
+            <div class="complaints-header">
+              <h3>Recent Reports & Complaints</h3>
+              <div class="complaints-filters">
+                <input type="text" class="search-input" placeholder="Search Complaints...">
+                <select class="priority-filter">
+                  <option value="all">All Priority</option>
+                  <option value="low">Low</option>
+                  <option value="medium">Medium</option>
+                  <option value="high">High</option>
+                </select>
+                <select class="rating-filter">
+                  <option value="all">All Ratings</option>
+                  <option value="5">5 Stars</option>
+                  <option value="4">4 Stars</option>
+                  <option value="3">3 Stars</option>
+                  <option value="2">2 Stars</option>
+                  <option value="1">1 Star</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Complaints Table -->
+            <div class="complaints-table-wrapper">
+              <table class="complaints-table">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>PASSENGER</th>
+                    <th>COMPLAINT TYPE</th>
+                    <th>DESCRIPTION</th>
+                    <th>DATE</th>
+                    <th>PRIORITY</th>
+                    <th>STATUS</th>
+                    <th>ACTION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Complaint Row 1 -->
+                  <tr>
+                    <td>C001</td>
+                    <td>Brave Buenofe</td>
+                    <td>Service Delay</td>
+                    <td>Bus arrived 20mins late...</td>
+                    <td>2025-10-15</td>
+                    <td><span class="priority-badge medium">MEDIUM</span></td>
+                    <td><span class="status-badge investigating">INVESTIGATING</span></td>
+                    <td><button class="action-btn">View</button></td>
+                  </tr>
+                  <!-- Complaint Row 2 -->
+                  <tr>
+                    <td>C001</td>
+                    <td>Brave Buenofe</td>
+                    <td>Service Delay</td>
+                    <td>Bus arrived 20mins late...</td>
+                    <td>2025-10-15</td>
+                    <td><span class="priority-badge high">HIGH</span></td>
+                    <td><span class="status-badge resolved">RESOLVED</span></td>
+                    <td><button class="action-btn">View</button></td>
+                  </tr>
+                  <!-- Complaint Row 3 -->
+                  <tr>
+                    <td>C001</td>
+                    <td>Brave Buenofe</td>
+                    <td>Service Delay</td>
+                    <td>Bus arrived 20mins late...</td>
+                    <td>2025-10-15</td>
+                    <td><span class="priority-badge medium">MEDIUM</span></td>
+                    <td><span class="status-badge resolved">RESOLVED</span></td>
+                    <td><button class="action-btn">View</button></td>
+                  </tr>
+                  <!-- Complaint Row 4 -->
+                  <tr>
+                    <td>C001</td>
+                    <td>Brave Buenofe</td>
+                    <td>Service Delay</td>
+                    <td>Bus arrived 20mins late...</td>
+                    <td>2025-10-15</td>
+                    <td><span class="priority-badge medium">MEDIUM</span></td>
+                    <td><span class="status-badge resolved">RESOLVED</span></td>
+                    <td><button class="action-btn">View</button></td>
+                  </tr>
+                  <!-- Complaint Row 5 -->
+                  <tr>
+                    <td>C001</td>
+                    <td>Brave Buenofe</td>
+                    <td>Service Delay</td>
+                    <td>Bus arrived 20mins late...</td>
+                    <td>2025-10-15</td>
+                    <td><span class="priority-badge medium">MEDIUM</span></td>
+                    <td><span class="status-badge resolved">RESOLVED</span></td>
+                    <td><button class="action-btn">View</button></td>
+                  </tr>
+                  <!-- Complaint Row 6 -->
+                  <tr>
+                    <td>C001</td>
+                    <td>Brave Buenofe</td>
+                    <td>Service Delay</td>
+                    <td>Bus arrived 20mins late...</td>
+                    <td>2025-10-15</td>
+                    <td><span class="priority-badge medium">MEDIUM</span></td>
+                    <td><span class="status-badge resolved">RESOLVED</span></td>
+                    <td><button class="action-btn">View</button></td>
+                  </tr>
+                  <!-- Complaint Row 7 -->
+                  <tr>
+                    <td>C001</td>
+                    <td>Brave Buenofe</td>
+                    <td>Service Delay</td>
+                    <td>Bus arrived 20mins late...</td>
+                    <td>2025-10-15</td>
+                    <td><span class="priority-badge low">LOW</span></td>
+                    <td><span class="status-badge resolved">RESOLVED</span></td>
+                    <td><button class="action-btn">View</button></td>
+                  </tr>
+                  <!-- Complaint Row 8 -->
+                  <tr>
+                    <td>C001</td>
+                    <td>Brave Buenofe</td>
+                    <td>Service Delay</td>
+                    <td>Bus arrived 20mins late...</td>
+                    <td>2025-10-15</td>
+                    <td><span class="priority-badge medium">MEDIUM</span></td>
+                    <td><span class="status-badge resolved">RESOLVED</span></td>
+                    <td><button class="action-btn">View</button></td>
+                  </tr>
+                  <!-- Complaint Row 9 -->
+                  <tr>
+                    <td>C001</td>
+                    <td>Brave Buenofe</td>
+                    <td>Service Delay</td>
+                    <td>Bus arrived 20mins late...</td>
+                    <td>2025-10-15</td>
+                    <td><span class="priority-badge medium">MEDIUM</span></td>
+                    <td><span class="status-badge resolved">RESOLVED</span></td>
+                    <td><button class="action-btn">View</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+    <script src="js/history.js"></script>
+</body>
+</html>

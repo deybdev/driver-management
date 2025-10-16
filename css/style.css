@@ -200,7 +200,7 @@ body.modal-open {
 
 /* Modal Buttons */
 .modal-btn {
-  background: var(--primary-color);
+  background: var(--secondary-color);
   color: var(--white);
   border: none;
   border-radius: 8px;

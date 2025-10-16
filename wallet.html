@@ -42,6 +42,10 @@
           ><a href="wallet.html"> My Wallet</a>
         </li>
         <li onclick="this.querySelector('a').click()">
+          <span class="iconify" data-icon="fa-solid:history"></span
+          ><a href="history.html"> Compliance</a>
+        </li>
+        <li onclick="this.querySelector('a').click()">
           <span class="iconify" data-icon="iconamoon:profile-fill"></span
           ><a href="profile.html"> Profile</a>
         </li>
@@ -62,7 +66,11 @@
               <span class="iconify" data-icon="mdi:plus"></span>
               Top Up
             </button>
-            <button id="cashout-btn" class="top-up-btn" data-open="cashout-modal">
+            <button
+              id="cashout-btn"
+              class="top-up-btn"
+              data-open="cashout-modal"
+            >
               <span class="iconify" data-icon="tabler:cash-move"></span>
               Cashout
             </button>
@@ -72,7 +80,12 @@
 
       <!-- MOBILE NAVIGATION BUTTONS -->
       <div class="mobile-nav-buttons">
-        <div class="mobile-nav-btn" id="mobile-topup-btn" data-section="topup" data-open="topup-modal">
+        <div
+          class="mobile-nav-btn"
+          id="mobile-topup-btn"
+          data-section="topup"
+          data-open="topup-modal"
+        >
           <div class="nav-btn-content">
             <span
               class="iconify nav-icon"
@@ -159,6 +172,7 @@
               <div class="transaction-details">
                 <p class="transaction-type">Cash-out to GCash</p>
                 <p class="transaction-date">Sept 28, 2025 - 14:35</p>
+                <p class="transaction-reference">876567890</p>
               </div>
               <div class="transaction-amount danger">- ₱500.00</div>
             </div>
@@ -169,6 +183,8 @@
               </div>
               <div class="transaction-details">
                 <p class="transaction-type">Trip Payment</p>
+                <p class="transaction-date">Sept 28, 2025 - 14:35</p>
+                <p class="transaction-reference">876567890</p>
               </div>
               <div class="transaction-amount success">+ ₱450.00</div>
             </div>
@@ -179,6 +195,8 @@
               </div>
               <div class="transaction-details">
                 <p class="transaction-type">Top-up</p>
+                <p class="transaction-date">Sept 28, 2025 - 14:35</p>
+                <p class="transaction-reference">876567890</p>
               </div>
               <div class="transaction-amount success">+ ₱1050.00</div>
             </div>
@@ -189,6 +207,8 @@
               </div>
               <div class="transaction-details">
                 <p class="transaction-type">Trip Payment</p>
+                <p class="transaction-date">Sept 28, 2025 - 14:35</p>
+                <p class="transaction-reference">876567890</p>
               </div>
               <div class="transaction-amount success">+ ₱150.00</div>
             </div>
@@ -199,6 +219,8 @@
               </div>
               <div class="transaction-details">
                 <p class="transaction-type">Trip Payment</p>
+                <p class="transaction-date">Sept 28, 2025 - 14:35</p>
+                <p class="transaction-reference">876567890</p>
               </div>
               <div class="transaction-amount success">+ ₱100.00</div>
             </div>
@@ -245,10 +267,23 @@
               <button>Remove</button>
             </div>
 
-            <div class="add-payment-method">
+            <button
+              class="add-payment-method"
+              id="add-payment-method"
+              data-open="add-payment-modal"
+            >
               <span class="iconify" data-icon="mdi:plus"></span>
               <span>Add Payment Method</span>
-            </div>
+            </button>
+
+            <button
+              id="cashout-btn"
+              class="top-up-btn"
+              data-open="cashout-modal"
+            >
+              <span class="iconify" data-icon="tabler:cash-move"></span>
+              Cashout
+            </button>
           </div>
         </div>
       </div>
@@ -290,6 +325,361 @@
           <div class="edit-account-link">
             <a href="#" class="edit-link">Edit Account Details</a>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add payment modal -->
+    <div id="add-payment-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Add Payment Method</h3>
+          <button
+            id="close-add-payment-modal"
+            class="close-modal"
+            data-close="add-payment-modal"
+          >
+            <span class="iconify" data-icon="mdi:close"></span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p style="margin-bottom: 20px; color: #666; font-size: 14px">
+            Select a payment method to add to your wallet
+          </p>
+
+          <!-- GCash Option -->
+          <div class="payment-option" data-payment="gcash">
+            <div class="payment-option-content">
+              <div class="payment-icon" style="background-color: #007dff">
+                <span style="color: white; font-weight: bold; font-size: 12px"
+                  >GCash</span
+                >
+              </div>
+              <div class="payment-info">
+                <h4>GCash</h4>
+                <p>Link your GCash account</p>
+              </div>
+            </div>
+            <span
+              class="iconify"
+              data-icon="mdi:chevron-right"
+              style="color: #999; font-size: 24px"
+            ></span>
+          </div>
+
+          <!-- Maya Option -->
+          <div class="payment-option" data-payment="maya">
+            <div class="payment-option-content">
+              <div class="payment-icon" style="background-color: #00d632">
+                <span style="color: white; font-weight: bold; font-size: 14px"
+                  >Maya</span
+                >
+              </div>
+              <div class="payment-info">
+                <h4>Maya</h4>
+                <p>Link your Maya account</p>
+              </div>
+            </div>
+            <span
+              class="iconify"
+              data-icon="mdi:chevron-right"
+              style="color: #999; font-size: 24px"
+            ></span>
+          </div>
+
+          <!-- GoTyme Option -->
+          <div class="payment-option" data-payment="gotyme">
+            <div class="payment-option-content">
+              <div class="payment-icon" style="background-color: #00d9ff">
+                <span style="color: white; font-weight: bold; font-size: 12px"
+                  >GO</span
+                >
+              </div>
+              <div class="payment-info">
+                <h4>GoTyme</h4>
+                <p>Link your GoTyme wallet</p>
+              </div>
+            </div>
+            <span
+              class="iconify"
+              data-icon="mdi:chevron-right"
+              style="color: #999; font-size: 24px"
+            ></span>
+          </div>
+
+          <!-- Bank Account Option -->
+          <div class="payment-option" data-payment="bank">
+            <div class="payment-option-content">
+              <div class="payment-icon" style="background-color: #e8e8e8">
+                <span
+                  class="iconify"
+                  data-icon="mdi:bank"
+                  style="color: #333; font-size: 24px"
+                ></span>
+              </div>
+              <div class="payment-info">
+                <h4>Bank Account</h4>
+                <p>Add bank account details</p>
+              </div>
+            </div>
+            <span
+              class="iconify"
+              data-icon="mdi:chevron-right"
+              style="color: #999; font-size: 24px"
+            ></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GCash Modal -->
+    <div id="gcash-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Add GCash</h3>
+          <button class="close-modal" data-close="gcash-modal">
+            <span class="iconify" data-icon="mdi:close"></span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- GCash Info Card -->
+          <div class="payment-info-card">
+            <div class="payment-icon" style="background-color: #007dff">
+              <span style="color: white; font-weight: bold; font-size: 12px"
+                >GCash</span
+              >
+            </div>
+            <div class="payment-info">
+              <h4>GCash</h4>
+              <p>Link your GCash account</p>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <form class="payment-form">
+            <div class="form-group">
+              <label>Mobile Number</label>
+              <input
+                type="tel"
+                class="form-control"
+                placeholder="Enter Mobile Number"
+                maxlength="11"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Account Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Account Holder Name"
+                required
+              />
+            </div>
+            <div class="note-box">
+              <strong>Note:</strong> Make sure the account details match your
+              registered GCash information to avoid transaction issues.
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="modal-btn secondary" data-modal="topup-modal">
+            Cancel
+          </button>
+          <button class="modal-btn">Add Funds</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Maya Modal -->
+    <div id="maya-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Add Maya</h3>
+          <button class="close-modal" data-close="maya-modal">
+            <span class="iconify" data-icon="mdi:close"></span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Maya Info Card -->
+          <div class="payment-info-card">
+            <div class="payment-icon" style="background-color: #00d632">
+              <span style="color: white; font-weight: bold; font-size: 14px"
+                >Maya</span
+              >
+            </div>
+            <div class="payment-info">
+              <h4>Maya</h4>
+              <p>Link your Maya account</p>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <form class="payment-form">
+            <div class="form-group">
+              <label>Mobile Number</label>
+              <input
+                type="tel"
+                class="form-control"
+                placeholder="Enter Mobile Number"
+                maxlength="11"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Account Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Account Holder Name"
+                required
+              />
+            </div>
+            <div class="note-box">
+              <strong>Note:</strong> Make sure the account details match your
+              registered Maya information to avoid transaction issues.
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="modal-btn secondary" data-modal="topup-modal">
+            Cancel
+          </button>
+          <button class="modal-btn">Add Funds</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- GoTyme Modal -->
+    <div id="gotyme-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Add GoTyme</h3>
+          <button class="close-modal" data-close="gotyme-modal">
+            <span class="iconify" data-icon="mdi:close"></span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- GoTyme Info Card -->
+          <div class="payment-info-card">
+            <div class="payment-icon" style="background-color: #00d9ff">
+              <span style="color: white; font-weight: bold; font-size: 12px"
+                >GO</span
+              >
+            </div>
+            <div class="payment-info">
+              <h4>GoTyme</h4>
+              <p>Link your GoTyme wallet</p>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <form class="payment-form">
+            <div class="form-group">
+              <label>Mobile Number</label>
+              <input
+                type="tel"
+                class="form-control"
+                placeholder="Enter Mobile Number"
+                maxlength="11"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Account Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Account Holder Name"
+                required
+              />
+            </div>
+            <div class="note-box">
+              <strong>Note:</strong> Make sure the account details match your
+              registered GoTyme information to avoid transaction issues.
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="modal-btn secondary" data-modal="topup-modal">
+            Cancel
+          </button>
+          <button class="modal-btn">Add Funds</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bank Account Modal -->
+    <div id="bank-modal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Add Bank Account</h3>
+          <button class="close-modal" data-close="bank-modal">
+            <span class="iconify" data-icon="mdi:close"></span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Bank Info Card -->
+          <div class="payment-info-card">
+            <div class="payment-icon" style="background-color: #e8e8e8">
+              <span
+                class="iconify"
+                data-icon="mdi:bank"
+                style="color: #333; font-size: 24px"
+              ></span>
+            </div>
+            <div class="payment-info">
+              <h4>Bank Account</h4>
+              <p>Add bank account details</p>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <form class="payment-form">
+            <div class="form-group">
+              <label>Bank Name</label>
+              <select class="form-control" required>
+                <option value="">Select Bank</option>
+                <option value="bdo">BDO</option>
+                <option value="bpi">BPI</option>
+                <option value="metrobank">Metrobank</option>
+                <option value="unionbank">UnionBank</option>
+                <option value="landbank">Landbank</option>
+                <option value="pnb">PNB</option>
+                <option value="security-bank">Security Bank</option>
+                <option value="rcbc">RCBC</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Account Number</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Account Number"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label>Account Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter Account Holder Name"
+                required
+              />
+            </div>
+            <div class="note-box">
+              <strong>Note:</strong> Make sure the account details match your
+              registered bank information to avoid transaction issues.
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="modal-btn secondary" data-modal="topup-modal">
+            Cancel
+          </button>
+          <button class="modal-btn">Add Funds</button>
         </div>
       </div>
     </div>

@@ -140,13 +140,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const scheduleTabGroup = document.querySelector(".pill-toggle-group");
   const bookingsSection = document.getElementById("bookings-section");
   const ongoingSection = document.getElementById("ongoing-section");
-  const historySection = document.getElementById("history-section");
+  const codingSection = document.getElementById("coding-section");
 
   function showScheduleSection(activeTab) {
     // Hide all sections
     if (bookingsSection) bookingsSection.style.display = "none";
     if (ongoingSection) ongoingSection.style.display = "none";
-    if (historySection) historySection.style.display = "none";
+    if (codingSection) codingSection.style.display = "none";
 
     // Show the active section
     switch (activeTab) {
@@ -156,8 +156,8 @@ document.addEventListener("DOMContentLoaded", () => {
       case "ongoing":
         if (ongoingSection) ongoingSection.style.display = "block";
         break;
-      case "history":
-        if (historySection) historySection.style.display = "block";
+      case "coding":
+        if (codingSection) codingSection.style.display = "block";
         break;
     }
   }

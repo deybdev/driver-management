@@ -43,14 +43,17 @@ export async function initMap(containerId) {
 
   mapInstance = L.map(containerId, { maxZoom: 18, minZoom: 3 }).setView(currentLocation, 14);
 
-  // --- OPENSTREETMAP TILES ---
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  // --- GRAYSCALE TILES ---
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>',
+    subdomains: "abcd",
+    maxZoom: 19
   }).addTo(mapInstance);
 
   renderMap();
 }
+
 
 // --- RENDER MAP WITH ROUTING AND MARKERS ---
 export const renderMap = function renderRoute() {
@@ -73,7 +76,6 @@ export const renderMap = function renderRoute() {
     iconAnchor: [30, 30],
   });
 
-  // Remove existing markers except tile layers
   mapInstance.eachLayer(layer => {
     if (layer instanceof L.Marker) mapInstance.removeLayer(layer);
   });

@@ -56,6 +56,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (closeBtn) close(closeBtn.dataset.close);
     const m = e.target.classList.contains('modal') && e.target;
     if (m) close(m.id);
+
+    // Handle payment option clicks
+    const paymentOption = e.target.closest('.payment-option');
+    if (paymentOption) {
+      const paymentType = paymentOption.dataset.payment;
+      if (paymentType) {
+        // Close the add-payment-modal
+        close('add-payment-modal');
+        // Open the specific payment method modal
+        setTimeout(() => {
+          open(`${paymentType}-modal`);
+        }, 300);
+      }
+    }
   });
   // Quick amount buttons
   const topUp = document.getElementById('topup-modal');
@@ -69,4 +83,28 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // Handle payment method form submissions
+  document.querySelectorAll('.payment-form').forEach(form => {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      // Get the modal ID
+      const modal = form.closest('.modal');
+      const modalId = modal ? modal.id : '';
+      const paymentMethod = modalId.replace('-modal', '');
+      
+      // Here you would normally send the data to your backend
+      // For now, we'll just show a success message and close the modal
+      alert(`${paymentMethod.charAt(0).toUpperCase() + paymentMethod.slice(1)} payment method added successfully!`);
+      
+      // Close the modal
+      if (modalId) {
+        close(modalId);
+      }
+      
+      // Reset the form
+      form.reset();
+    });
+  });
 });
